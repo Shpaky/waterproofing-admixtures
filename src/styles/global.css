@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+/* Design tokens. Any color, size or font in markup must come from here. */
+@theme {
+  --font-sans: 'Manrope', 'Noto Sans Devanagari', ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: oklch(97% 0.015 255);
+  --color-brand-100: #bcd7f1;
+  --color-brand-500: #085cd6;
+  --color-brand-700: #0938bd;
+  --color-brand-900: #203b80;
+  --color-accent: #fa0830;
+  --color-ink: oklch(22% 0.02 260);
+  --color-ink-muted: oklch(48% 0.02 260);
+  --color-surface: #ffffff;
+  --color-surface-alt: oklch(96.5% 0.005 255);
+  --color-line: oklch(90% 0.01 255);
+
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --container-content: 72rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

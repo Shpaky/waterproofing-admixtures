@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shpaky.github.io/waterproofing-admixtures/sitemap-index.xml

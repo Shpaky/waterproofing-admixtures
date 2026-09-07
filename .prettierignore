@@ -1,0 +1,10 @@
+dist
+node_modules
+.astro
+.lighthouseci
+test-results
+playwright-report
+shots
+package-lock.json
+public/fonts
+*.md

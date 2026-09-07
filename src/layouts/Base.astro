@@ -1,0 +1,55 @@
+---
+import '@/styles/global.css';
+import { defaultLocale, localePath, locales, t, type Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+  /** Path relative to the locale root, e.g. '' for home. */
+  path?: string;
+  noindex?: boolean;
+}
+
+const { locale, path = '', noindex = false } = Astro.props;
+const dict = t(locale);
+const title = Astro.props.title ?? dict.meta.title;
+const description = Astro.props.description ?? dict.meta.description;
+const site = Astro.site!;
+const canonical = new URL(localePath(locale, path), site);
+const alternates = locales.map((l) => ({ lang: l, href: new URL(localePath(l, path), site) }));
+const ogLocale = { en: 'en_IN', ru: 'ru_RU', hi: 'hi_IN' }[locale];
+---
+
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(localePath(defaultLocale, path), site)}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta name="theme-color" content="#0938bd" /><!-- tokens-ignore -->
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+    <link rel="sitemap" href={`${import.meta.env.BASE_URL}sitemap-index.xml`} />
+  </head>
+  <body class="min-h-dvh flex flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-brand-700"
+      >{dict.nav.skip}</a
+    >
+    <slot />
+  </body>
+</html>
