@@ -4,6 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # Правила проекта
 
+Контекст продукта, аудитория и структура лендинга: `docs/brief.md`.
+
 ## Стек
 Astro 7 (Node >= 22.12), TypeScript strict, Tailwind 4 (`@tailwindcss/vite`).
 Статическая сборка, клиентских фреймворков нет.
@@ -11,14 +13,25 @@ Astro 7 (Node >= 22.12), TypeScript strict, Tailwind 4 (`@tailwindcss/vite`).
 dev-зависимостей — см. `package.json` (astro, sitemap, check, sharp,
 tailwind, eslint/prettier с astro-плагинами, playwright + axe, lhci).
 
+## Локализация
+- Три локали: `en` (основная, без префикса), `ru` (`/ru/`), `hi` (`/hi/`).
+- Встроенный i18n Astro (`i18n` в `astro.config`), hreflang в `<head>`,
+  переключатель языка доступен с клавиатуры.
+- Все тексты в `src/i18n/<locale>.ts`, в компонентах строк нет.
+- Шрифты самохостятся (`public/fonts`), субсеты latin+cyrillic и devanagari,
+  `font-display: swap`.
+
 ## Жёсткие ограничения
-- Бюджет JS: <= 50 КБ на страницу (`npm run check:budget`)
+- Бюджет JS: <= 50 КБ собственного JS на страницу (`npm run check:budget`);
+  сторонние счётчики в бюджет не входят и подключаются отложенно.
 - Lighthouse: Perf/A11y/BP >= 95, SEO = 100 (`npm run lighthouse`)
 - Только токены из `@theme` в `src/styles/global.css`. Произвольные значения
   (`text-[13px]`, `bg-[#a3a3a3]`, hex в разметке/SVG) запрещены — `npm run lint:tokens`.
   В инлайн-SVG использовать `currentColor` и классы.
-- Ссылки и ассеты учитывают `base` (`import.meta.env.BASE_URL`), сайт живёт
-  на `https://shpaky.github.io//`.
+- Ссылки и ассеты учитывают `base` (`import.meta.env.BASE_URL`). Сайт живёт
+  на `https://shpaky.github.io/waterproofing-admixtures/`
+  (`site: 'https://shpaky.github.io'`, `base: '/waterproofing-admixtures'`).
+- Конверсия только через ссылки `tel:`, WhatsApp и Telegram. Форм и бэкенда нет.
 - Семантический HTML. Каждая интерактивная сущность доступна с клавиатуры.
   Компилятор Astro 7 строгий: все не-void теги закрываются.
 - Все анимации отключаются при prefers-reduced-motion
