@@ -10,7 +10,7 @@ export const contacts = {
   phoneHref: 'tel:+910000000000',
   whatsapp: 'https://wa.me/910000000000',
   telegram: 'https://t.me/username',
-  email: 'info@example.com',
+  email: 'raigroupholding@gmail.com',
   address: {
     en: 'Russian national pavilion Made in Russia, Navi Mumbai, Maharashtra, India',
     ru: 'Российский национальный павильон Made in Russia, Нави-Мумбаи, Махараштра, Индия',
