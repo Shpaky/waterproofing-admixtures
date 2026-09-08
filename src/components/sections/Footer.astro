@@ -9,6 +9,16 @@ interface Props {
 const { locale } = Astro.props;
 const dict = t(locale);
 const year = new Date().getFullYear();
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: contacts.company,
+  legalName: contacts.legalName,
+  description: `${dict.company.role}. ${dict.company.pavilion}.`,
+  url: new URL(import.meta.env.BASE_URL, Astro.site).href,
+  sameAs: [contacts.whatsapp, contacts.telegram],
+});
 ---
 
 <footer class="bg-brand-950 text-brand-100">
@@ -71,18 +81,6 @@ const year = new Date().getFullYear();
           }
         </ul>
       </nav>
-      <div>
-        <h2 class="eyebrow mb-3 text-brand-100">{dict.footer.contacts}</h2>
-        <ul class="flex flex-col gap-2 text-sm">
-          <li><a href={contacts.phoneHref} class="hover:underline">{contacts.phoneDisplay}</a></li>
-          <li>
-            <a href={`mailto:${contacts.email}`} class="wrap-anywhere hover:underline"
-              >{contacts.email}</a
-            >
-          </li>
-          <li class="text-brand-100/70">{contacts.address[locale]}</li>
-        </ul>
-      </div>
     </div>
   </div>
   <div class="border-t border-brand-100/15">
@@ -90,11 +88,12 @@ const year = new Date().getFullYear();
       {`© ${year} ${contacts.legalName} · ${dict.company.role} · ${dict.footer.rights}`}
     </p>
   </div>
+  <script is:inline type="application/ld+json" set:html={jsonLd} />
 </footer>
 
 <div
   class="fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 border-t border-line bg-surface/95 p-2 backdrop-blur-sm md:hidden"
-  aria-label={dict.contacts.quick}
+  aria-label={dict.cta.quick}
   role="region"
 >
   <a
