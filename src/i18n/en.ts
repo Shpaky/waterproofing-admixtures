@@ -192,6 +192,46 @@ export const en = {
       },
     ],
   },
+  audience: {
+    eyebrow: 'Who it is for',
+    title: 'One product, three ways to work with us',
+    lead: 'Contractors, private builders and dealers get different things from D5. Pick your scenario.',
+    items: [
+      {
+        icon: 'truck',
+        title: 'Contractors and RMC plants',
+        text: 'Waterproof grades without changing the placing process. Dosage support, site visits and documents for the client.',
+        points: [
+          'Volume pricing and scheduled deliveries',
+          'Mix design consultation',
+          'Datasheets and test reports for tenders',
+        ],
+        cta: 'Discuss a project',
+      },
+      {
+        icon: 'shield',
+        title: 'Private builders',
+        text: 'A dry basement, a leak-free water tank or pool from the first pour, with no membrane to redo in five years.',
+        points: [
+          'Simple dosage per bag of cement',
+          'Aqua Stop for existing leaks',
+          'Advice by phone in your language',
+        ],
+        cta: 'Ask a question',
+      },
+      {
+        icon: 'globe',
+        title: 'Dealers and distributors',
+        text: 'A Made in Russia product with margin room and a growing category. Regional exclusivity for active partners.',
+        points: [
+          'Stock in India, fast dispatch',
+          'Marketing materials in English and Hindi',
+          'Lead sharing from this site',
+        ],
+        cta: 'Partnership terms',
+      },
+    ],
+  },
   cta: { call: 'Call us', whatsapp: 'WhatsApp', telegram: 'Telegram' },
   footer: { madeIn: 'Made in Russia', rights: 'All rights reserved.' },
   notFound: { title: 'Page not found', back: 'Back to home' },
