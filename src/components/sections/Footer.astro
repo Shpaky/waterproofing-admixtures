@@ -75,7 +75,11 @@ const year = new Date().getFullYear();
         <h2 class="eyebrow mb-3 text-brand-100">{dict.footer.contacts}</h2>
         <ul class="flex flex-col gap-2 text-sm">
           <li><a href={contacts.phoneHref} class="hover:underline">{contacts.phoneDisplay}</a></li>
-          <li><a href={`mailto:${contacts.email}`} class="hover:underline">{contacts.email}</a></li>
+          <li>
+            <a href={`mailto:${contacts.email}`} class="wrap-anywhere hover:underline"
+              >{contacts.email}</a
+            >
+          </li>
           <li class="text-brand-100/70">{contacts.address[locale]}</li>
         </ul>
       </div>
@@ -83,7 +87,7 @@ const year = new Date().getFullYear();
   </div>
   <div class="border-t border-brand-100/15">
     <p class="mx-auto max-w-content px-4 py-5 text-xs text-brand-100/70 sm:px-6 lg:px-8">
-      {`© ${year} ${contacts.legalName} · ${dict.footer.rights}`}
+      {`© ${year} ${contacts.legalName} · ${dict.company.role} · ${dict.footer.rights}`}
     </p>
   </div>
 </footer>
