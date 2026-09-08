@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import Header from '@/components/sections/Header.astro';
+import Hero from '@/components/sections/Hero.astro';
 import Button from '@/components/ui/Button.astro';
 import Card from '@/components/ui/Card.astro';
 import Container from '@/components/ui/Container.astro';
@@ -21,17 +22,7 @@ const dict = t(locale);
   <Header locale={locale} />
 
   <main id="main" class="flex-1">
-    <Container class="flex flex-col gap-6 py-section-sm md:py-section">
-      <p class="eyebrow">{dict.footer.madeIn}</p>
-      <h1 class="max-w-4xl text-display text-brand-900">{dict.hero.title}</h1>
-      <p class="max-w-2xl text-lead text-ink-muted">{dict.hero.lead}</p>
-      <div class="flex flex-wrap gap-3">
-        <Button href={contacts.phoneHref} icon="phone" size="lg">{dict.cta.call}</Button>
-        <Button href={contacts.whatsapp} icon="whatsapp" variant="secondary" size="lg">
-          {dict.cta.whatsapp}
-        </Button>
-      </div>
-    </Container>
+    <Hero locale={locale} />
 
     <Section id="products" title={dict.products.title} eyebrow={dict.products.eyebrow} tone="alt">
       <ul class="grid gap-6 md:grid-cols-2" role="list">
