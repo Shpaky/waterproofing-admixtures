@@ -1,12 +1,16 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const routes = ['./', 'ru/', 'hi/'];
+/** axe cannot resolve backgrounds inside not-yet-rendered `content-visibility: auto` sections. */
+const renderAll = (page: Page) =>
+  page.addStyleTag({ content: '.section-lazy { content-visibility: visible !important; }' });
 const FOCUSABLE = 'a[href], button, summary, [tabindex="0"]';
 
 for (const route of routes) {
   test(`no axe violations on ${route}`, async ({ page }) => {
     await page.goto(route);
+    await renderAll(page);
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
       .analyze();
@@ -50,6 +54,7 @@ test('mobile menu opens and closes from the keyboard', async ({ page, isMobile, 
   await page.keyboard.press('Escape');
   await expect(panel).toBeHidden();
   await expect(toggle).toBeFocused();
+  await renderAll(page);
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
 });

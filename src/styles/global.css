@@ -138,6 +138,12 @@
   }
 }
 
+/* Below-the-fold sections skip layout until scrolled near; anchors still work. */
+@utility section-lazy {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 60rem;
+}
+
 @utility eyebrow {
   @apply text-eyebrow font-bold uppercase text-brand-500;
 }

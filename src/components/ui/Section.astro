@@ -29,7 +29,11 @@ const tones = {
 const headingId = `${id}-title`;
 ---
 
-<section id={id} aria-labelledby={headingId} class:list={['py-section', tones[tone], className]}>
+<section
+  id={id}
+  aria-labelledby={headingId}
+  class:list={['section-lazy py-section', tones[tone], className]}
+>
   <div class="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8">
     <header class:list={['mb-10 max-w-3xl md:mb-14', align === 'center' && 'mx-auto text-center']}>
       {

@@ -8,10 +8,11 @@ module.exports = {
         'http://localhost:4321/waterproofing-admixtures/ru/',
         'http://localhost:4321/waterproofing-admixtures/hi/',
       ],
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       settings: { chromeFlags: '--no-sandbox --headless=new' },
     },
     assert: {
+      aggregationMethod: 'median',
       assertions: {
         'categories:performance': ['error', { minScore: 0.95 }],
         'categories:accessibility': ['error', { minScore: 0.95 }],
