@@ -66,23 +66,20 @@ const markStyle: Record<Mark, { icon: IconName; cls: string }> = {
               </th>
               {row.values.map((v, i) => (
                 <td
-                  class:list={[
-                    'px-4 py-3 align-top',
-                    i === 0 ? 'bg-brand-50/60 font-semibold' : '',
-                  ]}
+                  class:list={['px-4 py-3 align-top', i === 0 ? 'bg-brand-50 font-semibold' : '']}
                 >
                   {isMark(v) ? (
-                    <span class="inline-flex items-center gap-2">
+                    <>
                       <span
                         class:list={[
-                          'grid size-6 place-items-center rounded-full',
+                          'mr-2 inline-grid size-6 translate-y-1.5 place-items-center rounded-full',
                           markStyle[v].cls,
                         ]}
                       >
                         <Icon name={markStyle[v].icon} class="size-4" />
                       </span>
                       {dict.values[v]}
-                    </span>
+                    </>
                   ) : (
                     v
                   )}

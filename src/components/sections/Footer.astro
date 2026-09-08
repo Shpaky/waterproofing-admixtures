@@ -16,11 +16,7 @@ const year = new Date().getFullYear();
     class="mx-auto grid max-w-content gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8"
   >
     <div class="flex flex-col gap-4 lg:col-span-2">
-      <a
-        href={localePath(locale)}
-        class="flex items-center gap-2 text-ink-inverse"
-        aria-label={dict.nav.home}
-      >
+      <a href={localePath(locale)} class="flex items-center gap-2 text-ink-inverse">
         <span class="grid size-9 place-items-center rounded-md bg-brand-500">
           <Icon name="drop" class="size-5" />
         </span>
@@ -62,6 +58,7 @@ const year = new Date().getFullYear();
                   aria-current={l === locale ? 'page' : undefined}
                   class:list={[
                     'block rounded-sm border px-3 py-1.5',
+                    l === 'hi' && 'font-devanagari-ui',
                     l === locale
                       ? 'border-brand-500 bg-brand-500/30 text-ink-inverse'
                       : 'border-brand-100/30 hover:border-brand-100',
