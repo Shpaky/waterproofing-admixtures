@@ -1,0 +1,127 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Icon, { type IconName } from '@/components/ui/Icon.astro';
+import { contacts } from '@/data/contacts';
+import { t, type Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const dict = t(locale);
+---
+
+<section
+  id="hero"
+  aria-labelledby="hero-title"
+  class="relative overflow-hidden bg-brand-950 text-ink-inverse"
+>
+  <div
+    class="mx-auto grid max-w-content items-center gap-12 px-4 pt-14 pb-16 sm:px-6 md:pt-20 md:pb-24 lg:grid-cols-12 lg:px-8"
+  >
+    <div class="flex flex-col gap-6 lg:col-span-7">
+      <p class="eyebrow text-brand-100">{dict.hero.eyebrow}</p>
+      <h1 id="hero-title" class="max-w-4xl text-display">{dict.hero.title}</h1>
+      <p class="max-w-2xl text-lead text-brand-100">{dict.hero.lead}</p>
+      <ul class="flex flex-col gap-2" role="list">
+        {
+          dict.hero.points.map((p) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-brand-500">
+                <Icon name="check" class="size-4" />
+              </span>
+              <span>{p}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-2 flex flex-wrap gap-3">
+        <Button href={contacts.whatsapp} icon="whatsapp" size="lg">{dict.cta.whatsapp}</Button>
+        <Button href={contacts.phoneHref} icon="phone" variant="inverse" size="lg">
+          {dict.cta.call}
+        </Button>
+      </div>
+      <p class="text-sm text-brand-100/80">{dict.hero.note}</p>
+    </div>
+
+    <figure class="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
+      <svg
+        viewBox="0 0 480 400"
+        class="h-auto w-full"
+        role="img"
+        aria-labelledby="hero-figure"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title id="hero-figure">{dict.hero.figure}</title>
+        <defs>
+          <pattern id="agg" width="48" height="48" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="12" r="5" class="fill-brand-700"></circle>
+            <circle cx="34" cy="30" r="7" class="fill-brand-700"></circle>
+            <circle cx="22" cy="40" r="3" class="fill-brand-700"></circle>
+            <circle cx="42" cy="8" r="3" class="fill-brand-700"></circle>
+          </pattern>
+        </defs>
+        <!-- water -->
+        <rect x="0" y="0" width="480" height="150" rx="24" class="fill-brand-500/40"></rect>
+        <path
+          d="M0 110c40-16 80-16 120 0s80 16 120 0 80-16 120 0 80 16 120 0v40H0z"
+          class="fill-brand-500/60"></path>
+        <path
+          d="M0 130c40-14 80-14 120 0s80 14 120 0 80-14 120 0 80 14 120 0v20H0z"
+          class="fill-brand-300/70"></path>
+        <!-- concrete -->
+        <rect x="0" y="150" width="480" height="250" rx="24" class="fill-brand-900"></rect>
+        <rect x="0" y="150" width="480" height="250" rx="24" fill="url(#agg)" opacity="0.5"></rect>
+        <!-- crack, sealed by crystals -->
+        <path
+          d="M240 150l-14 40 18 30-10 36 14 34-8 40"
+          class="stroke-brand-100/50"
+          stroke-width="3"
+          fill="none"
+          stroke-linecap="round"></path>
+        <g class="fill-brand-100">
+          <path d="M228 194l8-10 8 10-8 10z"></path>
+          <path d="M240 226l7-9 7 9-7 9z"></path>
+          <path d="M230 262l8-10 8 10-8 10z"></path>
+          <path d="M242 298l7-9 7 9-7 9z"></path>
+          <path d="M236 336l7-9 7 9-7 9z"></path>
+        </g>
+        <!-- drops bouncing off -->
+        <g class="fill-brand-100">
+          <path d="M96 128s10 11 10 18a10 10 0 0 1-20 0c0-7 10-18 10-18z"></path>
+          <path d="M380 124s10 11 10 18a10 10 0 0 1-20 0c0-7 10-18 10-18z"></path>
+        </g>
+        <!-- pressure arrows stopped at the surface -->
+        <g class="stroke-brand-100" stroke-width="3" fill="none" stroke-linecap="round">
+          <path d="M60 60v56M50 106l10 10 10-10"></path>
+          <path d="M160 60v56M150 106l10 10 10-10"></path>
+          <path d="M320 60v56M310 106l10 10 10-10"></path>
+          <path d="M420 60v56M410 106l10 10 10-10"></path>
+        </g>
+        <line x1="0" y1="150" x2="480" y2="150" class="stroke-brand-100" stroke-width="4"></line>
+      </svg>
+      <figcaption class="sr-only">{dict.hero.figure}</figcaption>
+    </figure>
+  </div>
+
+  <div class="border-t border-brand-100/15 bg-brand-900/60">
+    <ul
+      class="mx-auto grid max-w-content gap-6 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8"
+      role="list"
+    >
+      {
+        dict.hero.trust.map((item) => (
+          <li class="flex gap-3">
+            <span class="grid size-11 shrink-0 place-items-center rounded-md bg-brand-500/30 text-brand-100">
+              <Icon name={item.icon as IconName} class="size-6" />
+            </span>
+            <div>
+              <p class="font-bold">{item.title}</p>
+              <p class="text-sm text-brand-100/80">{item.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+# План работ и статус
+
+Обновлено: 2026-09-08 (этап 5 закрыт). Легенда: ✅ готово · 🔄 в работе · ⏳ не начато · ⛔ ждёт данных.
+
+## Этап 0. Контекст и бриф — ✅
+- ✅ Интервью: аудитория, конверсия, языки, продукты, стиль, аналитика.
+- ✅ `docs/brief.md`, `CLAUDE.md` актуализирован, палитра Made in Russia снята с madeinrussia.com.
+- ⛔ Открытые вопросы (см. бриф): название компании, контакты, сертификат Made in Russia,
+  техданные D5 / D5 Aqua Stop, фото.
+
+## Этап 1. Каркас проекта — ✅ (`73caa18`)
+- ✅ Astro 7.3 + Tailwind 4, TS strict, `site`/`base` для GitHub Pages, sitemap на 3 локали.
+- ✅ i18n: словари `src/i18n/{en,ru,hi}.ts`, `localePath()`, hreflang, переключатель языка.
+- ✅ Base layout с SEO-head (canonical, OG, hreflang), 404, robots, favicon.
+- ✅ Токены в `@theme`, prefers-reduced-motion, skip-link.
+- ✅ Проверки: `lint:tokens`, `check:budget`, `test:a11y` (Playwright + axe), `lighthouse`, `shots`.
+- ✅ CI на `devel`/PR, деплой на Pages из `master`.
+- ✅ Метрики: Lighthouse 100/100/100/100 на трёх локалях, JS 0 КБ.
+
+## Этап 2. Дизайн-система — ✅
+- ✅ Самохостинг шрифтов: Manrope (latin, latin-ext, cyrillic) и Noto Sans Devanagari, unicode-range, preload по локали, swap.
+- ✅ Типографическая шкала (display/h2/h3/lead/eyebrow, fluid), отступы секций, тени, радиусы в `@theme`.
+- ✅ Примитивы в `src/components/ui`: `Container`, `Section`, `Button` (primary/secondary/ghost/inverse), `Card`, `Icon` (16 иконок на currentColor).
+- ✅ `src/data/products.ts`: D5 и D5 Aqua Stop, локализованные поля, спеки помечены `verify: true` до получения TDS.
+- ✅ Lighthouse 98–100 / 100 / 100 / 100, axe чисто, JS 0 КБ.
+
+## Этап 3. Секции лендинга — ✅ (одна секция = один коммит + скриншоты 360/768/1280)
+| # | Секция | Статус | Примечание |
+|---|--------|--------|------------|
+| 1 | Header: логотип, навигация по якорям, переключатель языка, кнопка связи, мобильное меню | ✅ | `7b1ea02`, меню на 0.6 КБ JS, Escape возвращает фокус |
+| 2 | Hero: оффер, УТП, CTA «Позвонить» и «WhatsApp» | ✅ | `143a06c`, SVG-разрез бетона, полоса доверия |
+| 3 | Проблема и решение: почему бетон течёт, как работает кристаллизация | ✅ | `22929cc`, 3 причины + 3 шага |
+| 4 | Продукты: D5 и D5 Aqua Stop | ✅ | `9625f44`, спеки со звёздочкой до TDS ⛔ |
+| 5 | Преимущества и сравнение с обмазочной/рулонной гидроизоляцией | ✅ | `95ffc28`, таблица с caption/scope, фокусируемый скролл |
+| 6 | Области применения: фундаменты, подвалы, резервуары, ЖБИ, бассейны | ✅ | `913ced6` |
+| 7 | Для кого: подрядчики, частные застройщики, дилеры | ✅ | `fa8afea` |
+| 8 | Документы и сертификаты | ✅ | `ed2fd66`, список из `src/data/documents.ts`; PDF ⛔ |
+| 9 | FAQ | ✅ | `9e9c492`, details/summary, FAQPage JSON-LD |
+| 10 | Контакты и футер: телефон, WhatsApp, Telegram, адрес, Made in Russia | ✅ | `3c53354`, Organization JSON-LD, мобильная CTA-панель; реальные контакты ⛔ |
+
+## Этап 4. Контент и ассеты — ✅
+- ✅ Тексты на трёх языках вычитаны; утверждения, требующие подтверждения, вынесены в `docs/brief.md`.
+- ✅ OG-картинки 1200×630 на три локали и PNG-иконки генерируются `scripts/og.mjs` (sharp). Растровых фото пока нет, `astro:assets` подключим с реальными снимками.
+- ✅ JSON-LD: Organization, FAQPage, Product ×2. Twitter cards, apple-touch-icon.
+- ⛔ Замена плейсхолдеров на реальные фото и документы.
+- ✅ README с инструкцией по правке контента и запуску проверок.
+- ✅ Perf на хинди: `content-visibility: auto` для секций ниже первого экрана снял TBT с 300 мс до 10–40 мс. Lighthouse теперь медиана из 3 прогонов.
+
+## Этап 5. Приёмка — ✅ (отчёт: `docs/acceptance.md`)
+- ✅ Полный прогон: build, lint, budget, 41 тест Playwright, Lighthouse 98–99 / 100 / 100 / 100.
+- ✅ Клавиатура, skip-link, reduced-motion, переполнение, ссылки, head и sitemap покрыты `tests/site.spec.ts`; кадры фокуса в `shots/`.
+- 🔄 Эмуляция Pixel 7 и iPhone 14 пройдена; Firefox пройден (`PW_FIREFOX=1`). WebKit и реальные устройства — после деплоя.
+
+## Этап 6. Деплой и передача — ⏳
+- ⛔ Включить Pages в настройках репозитория (Source = GitHub Actions).
+- ⏳ PR `devel` → `master`, первый деплой, проверка `base`, sitemap, hreflang в проде.
+- ✅ README (сделано на этапе 4).
+- ⏳ Задел под аналитику: отложенный загрузчик счётчика (не подключён).
+
+## Отклонения от исходных требований
+- `eslint-plugin-jsx-a11y` не совместим с ESLint 10 и не установлен; a11y покрыта axe и `eslint-plugin-astro`.
+- Проп с именем `as` ломает вывод типов Props в Astro 7 (`Astro.props` становится `any`); в примитивах используется `tag`.
+- `npm run shots -- --section <id>` снимает одну секцию: полные страницы на 360 px выше 8000 px и не проходят загрузку.
+- axe не определяет фон внутри неотрисованных секций с `content-visibility: auto`; тесты перед анализом принудительно отрисовывают их.
+- Astro 7 в агентном окружении уводит `astro preview` в фон, поэтому Playwright и Lighthouse
+  используют `scripts/serve.mjs` (программный `preview()`).

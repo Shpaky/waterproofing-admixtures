@@ -1,0 +1,29 @@
+---
+import Icon, { type IconName } from '@/components/ui/Icon.astro';
+import Section from '@/components/ui/Section.astro';
+import { t, type Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const dict = t(locale).applications;
+---
+
+<Section id="applications" title={dict.title} eyebrow={dict.eyebrow} lead={dict.lead} tone="dark">
+  <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+    {
+      dict.items.map((item) => (
+        <li class="flex gap-4 rounded-lg border border-brand-100/15 bg-brand-900/60 p-5">
+          <span class="grid size-11 shrink-0 place-items-center rounded-md bg-brand-500/30 text-brand-100">
+            <Icon name={item.icon as IconName} class="size-6" />
+          </span>
+          <div>
+            <h3 class="font-bold">{item.title}</h3>
+            <p class="mt-1 text-sm text-brand-100/80">{item.text}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Section>

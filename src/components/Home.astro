@@ -1,0 +1,39 @@
+---
+import Base from '@/layouts/Base.astro';
+import Header from '@/components/sections/Header.astro';
+import Hero from '@/components/sections/Hero.astro';
+import HowItWorks from '@/components/sections/HowItWorks.astro';
+import Products from '@/components/sections/Products.astro';
+import Benefits from '@/components/sections/Benefits.astro';
+import Applications from '@/components/sections/Applications.astro';
+import Audience from '@/components/sections/Audience.astro';
+import Documents from '@/components/sections/Documents.astro';
+import Faq from '@/components/sections/Faq.astro';
+import Contacts from '@/components/sections/Contacts.astro';
+import Footer from '@/components/sections/Footer.astro';
+import type { Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<Base locale={locale}>
+  <Header locale={locale} />
+
+  <main id="main" class="flex-1">
+    <Hero locale={locale} />
+    <HowItWorks locale={locale} />
+
+    <Products locale={locale} />
+    <Benefits locale={locale} />
+    <Applications locale={locale} />
+    <Audience locale={locale} />
+    <Documents locale={locale} />
+    <Faq locale={locale} />
+    <Contacts locale={locale} />
+  </main>
+
+  <Footer locale={locale} />
+</Base>

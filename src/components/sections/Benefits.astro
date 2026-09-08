@@ -1,0 +1,97 @@
+---
+import Icon, { type IconName } from '@/components/ui/Icon.astro';
+import Section from '@/components/ui/Section.astro';
+import { t, type Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const dict = t(locale).benefits;
+
+type Mark = 'yes' | 'no' | 'partial';
+const isMark = (v: string): v is Mark => v === 'yes' || v === 'no' || v === 'partial';
+const markStyle: Record<Mark, { icon: IconName; cls: string }> = {
+  yes: { icon: 'check', cls: 'bg-success-soft text-success' },
+  no: { icon: 'close', cls: 'bg-accent-soft text-accent' },
+  partial: { icon: 'chevron-down', cls: 'bg-warning-soft text-warning' },
+};
+---
+
+<Section id="benefits" title={dict.title} eyebrow={dict.eyebrow} lead={dict.lead}>
+  <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
+    {
+      dict.items.map((item) => (
+        <li class="flex flex-col gap-3 rounded-lg border border-line p-6">
+          <span class="grid size-12 place-items-center rounded-md bg-brand-50 text-brand-500">
+            <Icon name={item.icon as IconName} class="size-7" />
+          </span>
+          <h3 class="text-h3">{item.title}</h3>
+          <p class="text-ink-muted">{item.text}</p>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h3 class="mt-16 mb-6 text-h3">{dict.compareTitle}</h3>
+  <div
+    class="overflow-x-auto rounded-lg border border-line"
+    tabindex="0"
+    role="region"
+    aria-label={dict.compareCaption}
+  >
+    <table class="w-full min-w-2xl border-collapse text-left text-sm">
+      <caption class="sr-only">{dict.compareCaption}</caption>
+      <thead class="bg-surface-alt">
+        <tr>
+          <th scope="col" class="px-4 py-3 font-semibold text-ink-muted">{dict.criterion}</th>
+          {
+            dict.columns.map((c, i) => (
+              <th
+                scope="col"
+                class:list={['px-4 py-3 font-bold', i === 0 ? 'bg-brand-50 text-brand-700' : '']}
+              >
+                {c}
+              </th>
+            ))
+          }
+        </tr>
+      </thead>
+      <tbody>
+        {
+          dict.rows.map((row) => (
+            <tr class="border-t border-line">
+              <th scope="row" class="px-4 py-3 font-semibold">
+                {row.name}
+              </th>
+              {row.values.map((v, i) => (
+                <td
+                  class:list={[
+                    'px-4 py-3 align-top',
+                    i === 0 ? 'bg-brand-50/60 font-semibold' : '',
+                  ]}
+                >
+                  {isMark(v) ? (
+                    <span class="inline-flex items-center gap-2">
+                      <span
+                        class:list={[
+                          'grid size-6 place-items-center rounded-full',
+                          markStyle[v].cls,
+                        ]}
+                      >
+                        <Icon name={markStyle[v].icon} class="size-4" />
+                      </span>
+                      {dict.values[v]}
+                    </span>
+                  ) : (
+                    v
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</Section>
