@@ -155,6 +155,43 @@ export const en = {
     ],
     values: { yes: 'Yes', no: 'No', partial: 'Partially' },
   },
+  applications: {
+    eyebrow: 'Applications',
+    title: 'Where D5 is used',
+    lead: 'Any concrete that meets water: below ground, holding water, or exposed to monsoon rain.',
+    items: [
+      {
+        icon: 'shield',
+        title: 'Foundations and basements',
+        text: 'Rafts, retaining walls, lift pits, underground parking.',
+      },
+      {
+        icon: 'drop',
+        title: 'Water tanks and reservoirs',
+        text: 'Overhead and underground tanks, STP and WTP structures, swimming pools.',
+      },
+      {
+        icon: 'crystal',
+        title: 'Precast and RMC',
+        text: 'Precast elements, box culverts, pipes, ready-mix supply for waterproof grades.',
+      },
+      {
+        icon: 'truck',
+        title: 'Infrastructure',
+        text: 'Tunnels, bridges, metro stations, canals and dams.',
+      },
+      {
+        icon: 'document',
+        title: 'Roof slabs and terraces',
+        text: 'Flat roofs and podium slabs exposed to standing rainwater.',
+      },
+      {
+        icon: 'phone',
+        title: 'Repair with D5 Aqua Stop',
+        text: 'Active leaks in joints, cracks, tie holes and pipe penetrations.',
+      },
+    ],
+  },
   cta: { call: 'Call us', whatsapp: 'WhatsApp', telegram: 'Telegram' },
   footer: { madeIn: 'Made in Russia', rights: 'All rights reserved.' },
   notFound: { title: 'Page not found', back: 'Back to home' },
