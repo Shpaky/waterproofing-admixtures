@@ -99,12 +99,12 @@ export const en = {
     askTds: 'Request datasheet',
     systemTitle: 'Used together',
     systemText:
-      'Dose D5 into new concrete for permanent waterproofing. Seal cold joints, tie holes and active leaks in existing structures with D5 Aqua Stop before or during pouring.',
+      'Dose D5 into new concrete for permanent waterproofing. Seal cold joints, tie holes and active leaks with D5 Aqua Stop, on existing structures or during construction.',
   },
   benefits: {
     eyebrow: 'Benefits',
     title: 'Why choose an admixture over a membrane',
-    lead: 'A membrane is a separate layer that can be punctured, peel or age. D5 becomes part of the concrete and has nothing to detach.',
+    lead: 'A membrane is a separate layer: it can be punctured, it peels off and it ages. D5 becomes part of the concrete and has nothing to detach.',
     items: [
       {
         icon: 'shield',
@@ -214,7 +214,7 @@ export const en = {
         text: 'A dry basement, a leak-free water tank or pool from the first pour, with no membrane to redo in five years.',
         points: [
           'Simple dosage per bag of cement',
-          'Aqua Stop for existing leaks',
+          'Aqua Stop for leaks in existing joints and cracks',
           'Advice by phone in your language',
         ],
         cta: 'Ask a question',
