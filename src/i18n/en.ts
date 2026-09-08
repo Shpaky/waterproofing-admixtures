@@ -101,6 +101,60 @@ export const en = {
     systemText:
       'Dose D5 into new concrete for permanent waterproofing. Seal cold joints, tie holes and active leaks in existing structures with D5 Aqua Stop before or during pouring.',
   },
+  benefits: {
+    eyebrow: 'Benefits',
+    title: 'Why choose an admixture over a membrane',
+    lead: 'A membrane is a separate layer that can be punctured, peel or age. D5 becomes part of the concrete and has nothing to detach.',
+    items: [
+      {
+        icon: 'shield',
+        title: 'Permanent',
+        text: 'Crystals are part of the concrete and stay active for its whole service life.',
+      },
+      {
+        icon: 'crystal',
+        title: 'Self-healing',
+        text: 'New hairline cracks reseal on contact with water, without repair work.',
+      },
+      {
+        icon: 'drop',
+        title: 'Both pressure sides',
+        text: 'Works whether water pushes from outside or from inside a tank.',
+      },
+      {
+        icon: 'truck',
+        title: 'Saves time on site',
+        text: 'No drying, priming or membrane laying. Backfill as soon as the concrete is ready.',
+      },
+      {
+        icon: 'check',
+        title: 'Cannot be damaged',
+        text: 'Nothing to tear during backfilling or rebar installation.',
+      },
+      {
+        icon: 'document',
+        title: 'Easy to specify',
+        text: 'One line in the concrete mix design, one datasheet for the engineer.',
+      },
+    ],
+    compareTitle: 'D5 compared with surface waterproofing',
+    compareCaption:
+      'Comparison of D5 crystalline admixture, cementitious coating and sheet membrane',
+    criterion: 'Criterion',
+    columns: ['D5 admixture', 'Cementitious coating', 'Sheet membrane'],
+    rows: [
+      { name: 'Where it works', values: ['Whole concrete body', 'Surface layer', 'Surface layer'] },
+      { name: 'Self-heals cracks', values: ['yes', 'no', 'no'] },
+      { name: 'Negative-side pressure', values: ['yes', 'partial', 'no'] },
+      { name: 'Damage during backfill', values: ['Not possible', 'Possible', 'Likely'] },
+      {
+        name: 'Extra work stages',
+        values: ['None', 'Priming, 2 coats, curing', 'Priming, laying, welding seams'],
+      },
+      { name: 'Service life', values: ['Life of the structure', '10–15 years', '10–20 years'] },
+    ],
+    values: { yes: 'Yes', no: 'No', partial: 'Partially' },
+  },
   cta: { call: 'Call us', whatsapp: 'WhatsApp', telegram: 'Telegram' },
   footer: { madeIn: 'Made in Russia', rights: 'All rights reserved.' },
   notFound: { title: 'Page not found', back: 'Back to home' },
