@@ -12,7 +12,7 @@ Nothing in the markup needs to change for routine updates.
 
 | What | Where |
 |---|---|
-| Company name, phone, WhatsApp, Telegram, e-mail, address, hours | `src/data/contacts.ts` |
+| Company name, phone, WhatsApp, Telegram, e-mail | `src/data/contacts.ts` |
 | Products, taglines, key data (`verify: true` shows an asterisk) | `src/data/products.ts` |
 | Documents list; add `href: 'docs/<file>.pdf'` once the PDF is in `public/docs/` | `src/data/documents.ts` |
 | All page copy per language | `src/i18n/en.ts`, `ru.ts`, `hi.ts` |
