@@ -50,6 +50,46 @@ export const en = {
       },
     ],
   },
+  how: {
+    eyebrow: 'Problem and solution',
+    title: 'Why concrete leaks, and how D5 stops it',
+    lead: 'Concrete is porous by nature. Capillaries, shrinkage cracks and cold joints let water through. Surface membranes cover the problem; D5 solves it inside the concrete.',
+    problemsTitle: 'Why ordinary concrete lets water in',
+    problems: [
+      {
+        icon: 'drop',
+        title: 'Capillary pores',
+        text: 'Excess mixing water evaporates and leaves a network of microscopic channels.',
+      },
+      {
+        icon: 'crystal',
+        title: 'Shrinkage cracks',
+        text: 'Hairline cracks appear as the concrete cures and are invisible from the surface.',
+      },
+      {
+        icon: 'document',
+        title: 'Cold joints and tie holes',
+        text: 'Every pour break and formwork tie is a ready path for water.',
+      },
+    ],
+    stepsTitle: 'How D5 works',
+    steps: [
+      {
+        title: 'Added at batching',
+        text: 'D5 is dosed into the mix at the plant or on site, like any other admixture. No change to the placing process.',
+      },
+      {
+        title: 'Reacts with cement',
+        text: 'Active chemicals react with moisture and hydration by-products to grow insoluble crystals.',
+      },
+      {
+        title: 'Seals pores for good',
+        text: 'Crystals fill capillaries and micro-cracks throughout the concrete body. When new water arrives, the reaction restarts and seals new hairline cracks.',
+      },
+    ],
+    result:
+      'The result is concrete that blocks water from either side and keeps doing so for the life of the structure, with no membrane to tear or reapply.',
+  },
   products: { eyebrow: 'Products', title: 'What we supply' },
   cta: { call: 'Call us', whatsapp: 'WhatsApp', telegram: 'Telegram' },
   footer: { madeIn: 'Made in Russia', rights: 'All rights reserved.' },

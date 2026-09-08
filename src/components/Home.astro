@@ -2,6 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import Header from '@/components/sections/Header.astro';
 import Hero from '@/components/sections/Hero.astro';
+import HowItWorks from '@/components/sections/HowItWorks.astro';
 import Button from '@/components/ui/Button.astro';
 import Card from '@/components/ui/Card.astro';
 import Container from '@/components/ui/Container.astro';
@@ -23,6 +24,7 @@ const dict = t(locale);
 
   <main id="main" class="flex-1">
     <Hero locale={locale} />
+    <HowItWorks locale={locale} />
 
     <Section id="products" title={dict.products.title} eyebrow={dict.products.eyebrow} tone="alt">
       <ul class="grid gap-6 md:grid-cols-2" role="list">
