@@ -1,0 +1,115 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import { contacts } from '@/data/contacts';
+import { localeNames, localePath, locales, t, type Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const dict = t(locale);
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-brand-950 text-brand-100">
+  <div
+    class="mx-auto grid max-w-content gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8"
+  >
+    <div class="flex flex-col gap-4 lg:col-span-2">
+      <a
+        href={localePath(locale)}
+        class="flex items-center gap-2 text-ink-inverse"
+        aria-label={dict.nav.home}
+      >
+        <span class="grid size-9 place-items-center rounded-md bg-brand-500">
+          <Icon name="drop" class="size-5" />
+        </span>
+        <span class="leading-tight">
+          <span class="block text-base font-extrabold">D5</span>
+          <span class="block text-eyebrow text-brand-100">{dict.footer.madeIn}</span>
+        </span>
+      </a>
+      <p class="max-w-md text-sm">{dict.footer.tagline}</p>
+      <p class="max-w-md text-xs text-brand-100/70">{dict.footer.note}</p>
+    </div>
+
+    <nav aria-label={dict.footer.nav}>
+      <h2 class="eyebrow mb-3 text-brand-100">{dict.footer.nav}</h2>
+      <ul class="flex flex-col gap-2 text-sm">
+        {
+          dict.nav.items.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-ink-inverse hover:underline">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex flex-col gap-6">
+      <nav aria-label={dict.footer.languages}>
+        <h2 class="eyebrow mb-3 text-brand-100">{dict.footer.languages}</h2>
+        <ul class="flex flex-wrap gap-2 text-sm">
+          {
+            locales.map((l) => (
+              <li>
+                <a
+                  href={localePath(l)}
+                  hreflang={l}
+                  lang={l}
+                  aria-current={l === locale ? 'page' : undefined}
+                  class:list={[
+                    'block rounded-sm border px-3 py-1.5',
+                    l === locale
+                      ? 'border-brand-500 bg-brand-500/30 text-ink-inverse'
+                      : 'border-brand-100/30 hover:border-brand-100',
+                  ]}
+                >
+                  {localeNames[l]}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div>
+        <h2 class="eyebrow mb-3 text-brand-100">{dict.footer.contacts}</h2>
+        <ul class="flex flex-col gap-2 text-sm">
+          <li><a href={contacts.phoneHref} class="hover:underline">{contacts.phoneDisplay}</a></li>
+          <li><a href={`mailto:${contacts.email}`} class="hover:underline">{contacts.email}</a></li>
+          <li class="text-brand-100/70">{contacts.address[locale]}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-brand-100/15">
+    <p class="mx-auto max-w-content px-4 py-5 text-xs text-brand-100/70 sm:px-6 lg:px-8">
+      © {year}
+      {contacts.legalName}. {dict.footer.rights}
+    </p>
+  </div>
+</footer>
+
+<div
+  class="fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 border-t border-line bg-surface/95 p-2 backdrop-blur-sm md:hidden"
+  aria-label={dict.contacts.quick}
+  role="region"
+>
+  <a
+    href={contacts.phoneHref}
+    class="inline-flex items-center justify-center gap-2 rounded-md border border-brand-300 py-3 font-semibold text-brand-700"
+  >
+    <Icon name="phone" class="size-5" />
+    {dict.cta.call}
+  </a>
+  <a
+    href={contacts.whatsapp}
+    rel="noopener"
+    class="inline-flex items-center justify-center gap-2 rounded-md bg-brand-500 py-3 font-semibold text-ink-inverse"
+  >
+    <Icon name="whatsapp" class="size-5" />
+    {dict.cta.whatsapp}
+  </a>
+</div>

@@ -9,15 +9,14 @@ import Applications from '@/components/sections/Applications.astro';
 import Audience from '@/components/sections/Audience.astro';
 import Documents from '@/components/sections/Documents.astro';
 import Faq from '@/components/sections/Faq.astro';
-import Container from '@/components/ui/Container.astro';
-import { contacts } from '@/data/contacts';
-import { t, type Locale } from '@/i18n';
+import Contacts from '@/components/sections/Contacts.astro';
+import Footer from '@/components/sections/Footer.astro';
+import type { Locale } from '@/i18n';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
-const dict = t(locale);
 ---
 
 <Base locale={locale}>
@@ -33,11 +32,8 @@ const dict = t(locale);
     <Audience locale={locale} />
     <Documents locale={locale} />
     <Faq locale={locale} />
+    <Contacts locale={locale} />
   </main>
 
-  <footer class="border-t border-line">
-    <Container class="py-6 text-sm text-ink-muted">
-      {contacts.company} · {dict.footer.madeIn} · {dict.footer.rights}
-    </Container>
-  </footer>
+  <Footer locale={locale} />
 </Base>
