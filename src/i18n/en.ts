@@ -9,6 +9,7 @@ export const en = {
     title: 'Concrete that stays dry for the life of the structure',
     lead: 'D5 waterproofing admixture and D5 Aqua Stop repair mix. Made in Russia, delivered across India.',
   },
+  products: { eyebrow: 'Products', title: 'What we supply' },
   cta: { call: 'Call us', whatsapp: 'WhatsApp', telegram: 'Telegram' },
   footer: { madeIn: 'Made in Russia', rights: 'All rights reserved.' },
   notFound: { title: 'Page not found', back: 'Back to home' },

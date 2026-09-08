@@ -11,6 +11,7 @@ export const hi: Dictionary = {
     title: 'ऐसा कंक्रीट जो संरचना के पूरे जीवनकाल तक सूखा रहे',
     lead: 'D5 वॉटरप्रूफिंग एडमिक्सचर और D5 Aqua Stop रिपेयर मिक्स। रूस में निर्मित, पूरे भारत में डिलीवरी।',
   },
+  products: { eyebrow: 'उत्पाद', title: 'हम क्या आपूर्ति करते हैं' },
   cta: { call: 'कॉल करें', whatsapp: 'WhatsApp', telegram: 'Telegram' },
   footer: { madeIn: 'रूस में निर्मित', rights: 'सर्वाधिकार सुरक्षित।' },
   notFound: { title: 'पृष्ठ नहीं मिला', back: 'होम पर वापस जाएँ' },

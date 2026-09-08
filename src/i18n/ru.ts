@@ -11,6 +11,7 @@ export const ru: Dictionary = {
     title: 'Бетон, который остаётся сухим весь срок службы',
     lead: 'Добавка D5 и ремонтная смесь D5 Aqua Stop. Сделано в России, доставка по всей Индии.',
   },
+  products: { eyebrow: 'Продукты', title: 'Что мы поставляем' },
   cta: { call: 'Позвонить', whatsapp: 'WhatsApp', telegram: 'Telegram' },
   footer: { madeIn: 'Сделано в России', rights: 'Все права защищены.' },
   notFound: { title: 'Страница не найдена', back: 'На главную' },

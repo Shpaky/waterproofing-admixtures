@@ -1,6 +1,12 @@
 ---
 import Base from '@/layouts/Base.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import Container from '@/components/ui/Container.astro';
+import Icon from '@/components/ui/Icon.astro';
+import Section from '@/components/ui/Section.astro';
 import { contacts } from '@/data/contacts';
+import { products } from '@/data/products';
 import { localeNames, localePath, locales, t, type Locale } from '@/i18n';
 
 interface Props {
@@ -12,12 +18,9 @@ const dict = t(locale);
 
 <Base locale={locale}>
   <header class="border-b border-line">
-    <nav
-      class="mx-auto flex max-w-content items-center justify-between gap-4 px-4 py-3"
-      aria-label={dict.nav.lang}
-    >
-      <a href={localePath(locale)} class="font-bold text-brand-700">D5</a>
-      <ul class="flex gap-3 text-sm">
+    <Container tag="nav" class="flex items-center justify-between gap-4 py-3">
+      <a href={localePath(locale)} class="text-lg font-extrabold text-brand-700">D5</a>
+      <ul class="flex gap-1 text-sm" aria-label={dict.nav.lang}>
         {
           locales.map((l) => (
             <li>
@@ -27,8 +30,8 @@ const dict = t(locale);
                 lang={l}
                 aria-current={l === locale ? 'page' : undefined}
                 class:list={[
-                  'rounded-md px-2 py-1 hover:underline',
-                  l === locale && 'bg-brand-50 text-brand-700',
+                  'rounded-sm px-2 py-1 hover:underline',
+                  l === locale && 'bg-brand-50 font-semibold text-brand-700',
                 ]}
               >
                 {localeNames[l]}
@@ -37,32 +40,63 @@ const dict = t(locale);
           ))
         }
       </ul>
-    </nav>
+    </Container>
   </header>
 
-  <main id="main" class="mx-auto flex w-full max-w-content flex-1 flex-col gap-6 px-4 py-16">
-    <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-brand-900 md:text-5xl">
-      {dict.hero.title}
-    </h1>
-    <p class="max-w-2xl text-lg text-ink-muted">{dict.hero.lead}</p>
-    <div class="flex flex-wrap gap-3">
-      <a
-        href={contacts.phoneHref}
-        class="rounded-md bg-brand-500 px-5 py-3 font-semibold text-surface hover:bg-brand-700"
-        >{dict.cta.call}</a
-      >
-      <a
-        href={contacts.whatsapp}
-        rel="noopener"
-        class="rounded-md border border-brand-500 px-5 py-3 font-semibold text-brand-700 hover:bg-brand-50"
-        >{dict.cta.whatsapp}</a
-      >
-    </div>
+  <main id="main" class="flex-1">
+    <Container class="flex flex-col gap-6 py-section-sm md:py-section">
+      <p class="eyebrow">{dict.footer.madeIn}</p>
+      <h1 class="max-w-4xl text-display text-brand-900">{dict.hero.title}</h1>
+      <p class="max-w-2xl text-lead text-ink-muted">{dict.hero.lead}</p>
+      <div class="flex flex-wrap gap-3">
+        <Button href={contacts.phoneHref} icon="phone" size="lg">{dict.cta.call}</Button>
+        <Button href={contacts.whatsapp} icon="whatsapp" variant="secondary" size="lg">
+          {dict.cta.whatsapp}
+        </Button>
+      </div>
+    </Container>
+
+    <Section id="products" title={dict.products.title} eyebrow={dict.products.eyebrow} tone="alt">
+      <ul class="grid gap-6 md:grid-cols-2" role="list">
+        {
+          products.map((p) => (
+            <Card tag="li" class="flex flex-col gap-4">
+              <div class="flex items-center gap-3">
+                <span class="grid size-12 place-items-center rounded-md bg-brand-50 text-brand-500">
+                  <Icon name={p.icon} class="size-7" />
+                </span>
+                <div>
+                  <h3 class="text-h3">{p.name}</h3>
+                  <p class="text-sm text-ink-muted">{p.kind[locale]}</p>
+                </div>
+              </div>
+              <p class="text-ink">{p.tagline[locale]}</p>
+              <ul class="flex flex-col gap-2 text-sm">
+                {p.bullets.map((b) => (
+                  <li class="flex gap-2">
+                    <Icon name="check" class="mt-0.5 size-4 shrink-0 text-success" />
+                    <span>{b[locale]}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button
+                href={contacts.whatsapp}
+                variant="ghost"
+                icon="arrow-right"
+                class="self-start"
+              >
+                {dict.cta.whatsapp}
+              </Button>
+            </Card>
+          ))
+        }
+      </ul>
+    </Section>
   </main>
 
   <footer class="border-t border-line">
-    <div class="mx-auto max-w-content px-4 py-6 text-sm text-ink-muted">
+    <Container class="py-6 text-sm text-ink-muted">
       {contacts.company} · {dict.footer.madeIn} · {dict.footer.rights}
-    </div>
+    </Container>
   </footer>
 </Base>

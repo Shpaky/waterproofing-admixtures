@@ -15,15 +15,16 @@ for (const route of routes) {
   test(`keyboard reaches all links on ${route}`, async ({ page }) => {
     await page.goto(route);
     const count = await page.locator('a[href], button').count();
-    const seen = new Set<string>();
+    const seen = new Set<number>();
     for (let i = 0; i < count + 2; i++) {
       await page.keyboard.press('Tab');
-      const id = await page.evaluate(() => {
-        const el = document.activeElement as HTMLElement | null;
-        return el ? `${el.tagName}:${el.getAttribute('href') ?? el.textContent?.trim()}` : '';
-      });
-      if (id) seen.add(id);
+      const index = await page.evaluate(() =>
+        Array.from(document.querySelectorAll('a[href], button')).indexOf(
+          document.activeElement as Element,
+        ),
+      );
+      if (index >= 0) seen.add(index);
     }
-    expect(seen.size).toBeGreaterThanOrEqual(count);
+    expect(seen.size).toBe(count);
   });
 }

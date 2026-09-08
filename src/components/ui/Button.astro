@@ -1,0 +1,42 @@
+---
+/**
+ * Link-button. All conversions are links (tel:, wa.me, t.me), so `href` is required.
+ */
+import Icon, { type IconName } from './Icon.astro';
+
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'inverse';
+  size?: 'md' | 'lg';
+  icon?: IconName;
+  external?: boolean;
+  class?: string;
+}
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  icon,
+  external = /^https?:/.test(href),
+  class: className = '',
+} = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center gap-2 rounded-md font-semibold whitespace-nowrap transition duration-200 ease-out-soft motion-safe:hover:-translate-y-px';
+const variants = {
+  primary: 'bg-brand-500 text-ink-inverse shadow-cta hover:bg-brand-700',
+  secondary: 'border border-brand-300 text-brand-700 hover:border-brand-500 hover:bg-brand-50',
+  ghost: 'text-brand-700 hover:bg-brand-50',
+  inverse: 'bg-surface text-brand-700 hover:bg-brand-50',
+};
+const sizes = { md: 'px-5 py-3 text-base', lg: 'px-7 py-4 text-lg' };
+---
+
+<a
+  href={href}
+  class:list={[base, variants[variant], sizes[size], className]}
+  rel={external ? 'noopener' : undefined}
+>
+  {icon && <Icon name={icon} class="size-5 shrink-0" />}
+  <slot />
+</a>

@@ -1,0 +1,19 @@
+---
+export interface Props {
+  tag?: 'div' | 'li' | 'article';
+  tone?: 'default' | 'alt' | 'brand';
+  class?: string;
+}
+const { tone = 'default', class: className = '' } = Astro.props;
+const Tag = Astro.props.tag ?? 'div';
+const tones = {
+  default: 'bg-surface border border-line shadow-card',
+  alt: 'bg-surface-alt border border-transparent',
+  brand: 'bg-brand-900 text-ink-inverse',
+};
+const classes = ['rounded-lg p-6 md:p-8', tones[tone], className];
+---
+
+<Tag class:list={classes}>
+  <slot />
+</Tag>
