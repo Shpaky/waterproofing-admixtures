@@ -3,13 +3,9 @@ import Base from '@/layouts/Base.astro';
 import Header from '@/components/sections/Header.astro';
 import Hero from '@/components/sections/Hero.astro';
 import HowItWorks from '@/components/sections/HowItWorks.astro';
-import Button from '@/components/ui/Button.astro';
-import Card from '@/components/ui/Card.astro';
+import Products from '@/components/sections/Products.astro';
 import Container from '@/components/ui/Container.astro';
-import Icon from '@/components/ui/Icon.astro';
-import Section from '@/components/ui/Section.astro';
 import { contacts } from '@/data/contacts';
-import { products } from '@/data/products';
 import { t, type Locale } from '@/i18n';
 
 interface Props {
@@ -26,42 +22,7 @@ const dict = t(locale);
     <Hero locale={locale} />
     <HowItWorks locale={locale} />
 
-    <Section id="products" title={dict.products.title} eyebrow={dict.products.eyebrow} tone="alt">
-      <ul class="grid gap-6 md:grid-cols-2" role="list">
-        {
-          products.map((p) => (
-            <Card tag="li" class="flex flex-col gap-4">
-              <div class="flex items-center gap-3">
-                <span class="grid size-12 place-items-center rounded-md bg-brand-50 text-brand-500">
-                  <Icon name={p.icon} class="size-7" />
-                </span>
-                <div>
-                  <h3 class="text-h3">{p.name}</h3>
-                  <p class="text-sm text-ink-muted">{p.kind[locale]}</p>
-                </div>
-              </div>
-              <p class="text-ink">{p.tagline[locale]}</p>
-              <ul class="flex flex-col gap-2 text-sm">
-                {p.bullets.map((b) => (
-                  <li class="flex gap-2">
-                    <Icon name="check" class="mt-0.5 size-4 shrink-0 text-success" />
-                    <span>{b[locale]}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                href={contacts.whatsapp}
-                variant="ghost"
-                icon="arrow-right"
-                class="self-start"
-              >
-                {dict.cta.whatsapp}
-              </Button>
-            </Card>
-          ))
-        }
-      </ul>
-    </Section>
+    <Products locale={locale} />
   </main>
 
   <footer class="border-t border-line">

@@ -90,7 +90,17 @@ export const en = {
     result:
       'The result is concrete that blocks water from either side and keeps doing so for the life of the structure, with no membrane to tear or reapply.',
   },
-  products: { eyebrow: 'Products', title: 'What we supply' },
+  products: {
+    eyebrow: 'Products',
+    title: 'What we supply',
+    lead: 'Two products that work as one system: D5 protects the concrete body, D5 Aqua Stop handles leaks at joints and defects.',
+    specsTitle: 'Key data',
+    verify: 'Preliminary values, confirmed in the technical datasheet',
+    askTds: 'Request datasheet',
+    systemTitle: 'Used together',
+    systemText:
+      'Dose D5 into new concrete for permanent waterproofing. Seal cold joints, tie holes and active leaks in existing structures with D5 Aqua Stop before or during pouring.',
+  },
   cta: { call: 'Call us', whatsapp: 'WhatsApp', telegram: 'Telegram' },
   footer: { madeIn: 'Made in Russia', rights: 'All rights reserved.' },
   notFound: { title: 'Page not found', back: 'Back to home' },
