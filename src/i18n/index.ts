@@ -3,9 +3,13 @@ import { ru } from './ru';
 import { hi } from './hi';
 
 export type Locale = 'en' | 'ru' | 'hi';
-export type Dictionary = {
-  [K in keyof typeof en]: { [P in keyof (typeof en)[K]]: string };
-};
+/** Same shape as `en`; literal strings widen to `string`, arrays keep their item shape. */
+type Shape<T> = T extends string
+  ? string
+  : T extends readonly (infer U)[]
+    ? Shape<U>[]
+    : { [K in keyof T]: Shape<T[K]> };
+export type Dictionary = Shape<typeof en>;
 
 export const locales: Locale[] = ['en', 'ru', 'hi'];
 export const defaultLocale: Locale = 'en';

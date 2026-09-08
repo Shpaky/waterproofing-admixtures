@@ -6,7 +6,21 @@ export const ru: Dictionary = {
     description:
       'Кристаллизующая добавка D5 и ремонтная смесь D5 Aqua Stop. Сделано в России, поставки в Индию. Позвоните или напишите в WhatsApp.',
   },
-  nav: { home: 'Главная', skip: 'К содержимому', lang: 'Язык' },
+  nav: {
+    home: 'Главная',
+    skip: 'К содержимому',
+    lang: 'Язык',
+    menu: 'Меню',
+    close: 'Закрыть меню',
+    items: [
+      { href: '#products', label: 'Продукты' },
+      { href: '#how-it-works', label: 'Как работает' },
+      { href: '#benefits', label: 'Преимущества' },
+      { href: '#applications', label: 'Применение' },
+      { href: '#faq', label: 'Вопросы' },
+      { href: '#contacts', label: 'Контакты' },
+    ],
+  },
   hero: {
     title: 'Бетон, который остаётся сухим весь срок службы',
     lead: 'Добавка D5 и ремонтная смесь D5 Aqua Stop. Сделано в России, доставка по всей Индии.',

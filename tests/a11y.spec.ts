@@ -14,17 +14,35 @@ for (const route of routes) {
 
   test(`keyboard reaches all links on ${route}`, async ({ page }) => {
     await page.goto(route);
-    const count = await page.locator('a[href], button').count();
+    const count = await page.locator('a[href]:visible, button:visible').count();
     const seen = new Set<number>();
     for (let i = 0; i < count + 2; i++) {
       await page.keyboard.press('Tab');
       const index = await page.evaluate(() =>
-        Array.from(document.querySelectorAll('a[href], button')).indexOf(
-          document.activeElement as Element,
-        ),
+        Array.from(document.querySelectorAll('a[href], button'))
+          .filter((el) => el.getClientRects().length > 0)
+          .indexOf(document.activeElement as Element),
       );
       if (index >= 0) seen.add(index);
     }
     expect(seen.size).toBe(count);
   });
 }
+
+test('mobile menu opens and closes from the keyboard', async ({ page, isMobile, viewport }) => {
+  test.skip(!!viewport && viewport.width >= 1024, 'desktop shows inline nav');
+  void isMobile;
+  await page.goto('./');
+  const toggle = page.locator('[data-menu-toggle]');
+  const panel = page.locator('#mobile-menu');
+  await expect(panel).toBeHidden();
+  await toggle.focus();
+  await page.keyboard.press('Enter');
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(panel).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(panel).toBeHidden();
+  await expect(toggle).toBeFocused();
+  const results = await new AxeBuilder({ page }).analyze();
+  expect(results.violations).toEqual([]);
+});

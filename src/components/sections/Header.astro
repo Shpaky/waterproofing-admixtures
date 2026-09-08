@@ -1,0 +1,157 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Icon from '@/components/ui/Icon.astro';
+import { contacts } from '@/data/contacts';
+import { localeNames, localePath, locales, t, type Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const dict = t(locale);
+const linkClass =
+  'rounded-sm px-3 py-2 text-sm font-semibold text-ink hover:bg-brand-50 hover:text-brand-700';
+---
+
+<header class="sticky top-0 z-40 border-b border-line bg-surface/90 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-content items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <a href={localePath(locale)} class="flex items-center gap-2" aria-label={dict.nav.home}>
+      <span class="grid size-9 place-items-center rounded-md bg-brand-700 text-ink-inverse">
+        <Icon name="drop" class="size-5" />
+      </span>
+      <span class="leading-tight">
+        <span class="block text-base font-extrabold text-brand-900">D5</span>
+        <span class="block text-eyebrow whitespace-nowrap text-ink-muted">{dict.footer.madeIn}</span
+        >
+      </span>
+    </a>
+
+    <nav class="ml-auto hidden lg:block" aria-label={dict.nav.menu}>
+      <ul class="flex items-center gap-1">
+        {
+          dict.nav.items.map((item) => (
+            <li>
+              <a href={item.href} class={linkClass}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav class="hidden md:block lg:ml-2" aria-label={dict.nav.lang}>
+      <ul class="flex gap-0.5 rounded-md border border-line p-0.5 text-sm">
+        {
+          locales.map((l) => (
+            <li>
+              <a
+                href={localePath(l)}
+                hreflang={l}
+                lang={l}
+                aria-current={l === locale ? 'page' : undefined}
+                title={localeNames[l]}
+                class:list={[
+                  'block rounded-sm px-2 py-1 font-semibold uppercase hover:bg-brand-50',
+                  l === locale ? 'bg-brand-50 text-brand-700' : 'text-ink-muted',
+                ]}
+              >
+                {l}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="ml-auto hidden md:block lg:ml-0">
+      <Button href={contacts.whatsapp} icon="whatsapp">{dict.cta.whatsapp}</Button>
+    </div>
+
+    <button
+      type="button"
+      class="group ml-auto grid size-11 place-items-center rounded-md border border-line text-brand-900 md:ml-0 lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      data-menu-toggle
+    >
+      <Icon name="menu" class="size-6 group-aria-expanded:hidden" />
+      <Icon name="close" class="hidden size-6 group-aria-expanded:block" />
+      <span class="sr-only" data-label-open>{dict.nav.menu}</span>
+      <span class="sr-only" data-label-close hidden>{dict.nav.close}</span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="border-t border-line bg-surface lg:hidden" hidden data-menu-panel>
+    <nav
+      class="mx-auto flex max-w-content flex-col gap-1 px-4 py-4 sm:px-6"
+      aria-label={dict.nav.menu}
+    >
+      <ul class="flex flex-col">
+        {
+          dict.nav.items.map((item) => (
+            <li>
+              <a href={item.href} class:list={[linkClass, 'block py-3 text-base']}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-3 flex flex-wrap items-center gap-3 border-t border-line pt-4">
+        <ul class="flex gap-2 md:hidden" aria-label={dict.nav.lang}>
+          {
+            locales.map((l) => (
+              <li>
+                <a
+                  href={localePath(l)}
+                  hreflang={l}
+                  lang={l}
+                  aria-current={l === locale ? 'page' : undefined}
+                  class:list={[
+                    'block rounded-sm border px-3 py-2 text-sm font-semibold',
+                    l === locale
+                      ? 'border-brand-500 bg-brand-50 text-brand-700'
+                      : 'border-line text-ink-muted',
+                  ]}
+                >
+                  {localeNames[l]}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <Button href={contacts.whatsapp} icon="whatsapp" class="w-full md:hidden">
+          {dict.cta.whatsapp}
+        </Button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const panel = document.querySelector<HTMLElement>('[data-menu-panel]');
+  if (toggle && panel) {
+    const labelOpen = toggle.querySelector<HTMLElement>('[data-label-open]');
+    const labelClose = toggle.querySelector<HTMLElement>('[data-label-close]');
+    const set = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      panel.hidden = !open;
+      if (labelOpen) labelOpen.hidden = open;
+      if (labelClose) labelClose.hidden = !open;
+    };
+    toggle.addEventListener('click', () => set(panel.hidden));
+    panel.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a[href^="#"]')) set(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !panel.hidden) {
+        set(false);
+        toggle.focus();
+      }
+    });
+    const desktop = window.matchMedia('(min-width: 64rem)');
+    desktop.addEventListener('change', (e) => e.matches && set(false));
+  }
+</script>

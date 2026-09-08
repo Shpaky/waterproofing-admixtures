@@ -1,5 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
+import Header from '@/components/sections/Header.astro';
 import Button from '@/components/ui/Button.astro';
 import Card from '@/components/ui/Card.astro';
 import Container from '@/components/ui/Container.astro';
@@ -7,7 +8,7 @@ import Icon from '@/components/ui/Icon.astro';
 import Section from '@/components/ui/Section.astro';
 import { contacts } from '@/data/contacts';
 import { products } from '@/data/products';
-import { localeNames, localePath, locales, t, type Locale } from '@/i18n';
+import { t, type Locale } from '@/i18n';
 
 interface Props {
   locale: Locale;
@@ -17,31 +18,7 @@ const dict = t(locale);
 ---
 
 <Base locale={locale}>
-  <header class="border-b border-line">
-    <Container tag="nav" class="flex items-center justify-between gap-4 py-3">
-      <a href={localePath(locale)} class="text-lg font-extrabold text-brand-700">D5</a>
-      <ul class="flex gap-1 text-sm" aria-label={dict.nav.lang}>
-        {
-          locales.map((l) => (
-            <li>
-              <a
-                href={localePath(l)}
-                hreflang={l}
-                lang={l}
-                aria-current={l === locale ? 'page' : undefined}
-                class:list={[
-                  'rounded-sm px-2 py-1 hover:underline',
-                  l === locale && 'bg-brand-50 font-semibold text-brand-700',
-                ]}
-              >
-                {localeNames[l]}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </Container>
-  </header>
+  <Header locale={locale} />
 
   <main id="main" class="flex-1">
     <Container class="flex flex-col gap-6 py-section-sm md:py-section">

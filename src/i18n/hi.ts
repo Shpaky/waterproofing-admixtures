@@ -6,7 +6,21 @@ export const hi: Dictionary = {
     description:
       'D5 क्रिस्टलाइन एडमिक्सचर और D5 Aqua Stop रिपेयर मिक्स। रूस में निर्मित, भारत में आपूर्ति। कॉल करें या WhatsApp पर संदेश भेजें।',
   },
-  nav: { home: 'होम', skip: 'सामग्री पर जाएँ', lang: 'भाषा' },
+  nav: {
+    home: 'होम',
+    skip: 'सामग्री पर जाएँ',
+    lang: 'भाषा',
+    menu: 'मेनू',
+    close: 'मेनू बंद करें',
+    items: [
+      { href: '#products', label: 'उत्पाद' },
+      { href: '#how-it-works', label: 'कैसे काम करता है' },
+      { href: '#benefits', label: 'लाभ' },
+      { href: '#applications', label: 'उपयोग' },
+      { href: '#faq', label: 'सवाल-जवाब' },
+      { href: '#contacts', label: 'संपर्क' },
+    ],
+  },
   hero: {
     title: 'ऐसा कंक्रीट जो संरचना के पूरे जीवनकाल तक सूखा रहे',
     lead: 'D5 वॉटरप्रूफिंग एडमिक्सचर और D5 Aqua Stop रिपेयर मिक्स। रूस में निर्मित, पूरे भारत में डिलीवरी।',
