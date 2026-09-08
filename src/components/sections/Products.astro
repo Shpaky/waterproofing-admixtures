@@ -14,6 +14,25 @@ const { locale } = Astro.props;
 const dict = t(locale);
 const p = dict.products;
 const needsVerify = products.some((x) => x.specs.some((s) => s.verify));
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': products.map((product) => ({
+    '@type': 'Product',
+    name: product.name,
+    description: product.description[locale],
+    category: product.kind[locale],
+    brand: { '@type': 'Brand', name: 'D5' },
+    manufacturer: { '@type': 'Organization', name: contacts.company },
+    countryOfOrigin: 'RU',
+    url: `${new URL(import.meta.env.BASE_URL, Astro.site).href}#products`,
+    additionalProperty: product.specs.map((s) => ({
+      '@type': 'PropertyValue',
+      name: s.label[locale],
+      value: s.value[locale],
+    })),
+  })),
+});
 ---
 
 <Section id="products" title={p.title} eyebrow={p.eyebrow} lead={p.lead} tone="alt">
@@ -79,4 +98,5 @@ const needsVerify = products.some((x) => x.specs.some((s) => s.verify));
       <p class="mt-1 text-brand-100">{p.systemText}</p>
     </div>
   </div>
+  <script is:inline type="application/ld+json" set:html={jsonLd} />
 </Section>
