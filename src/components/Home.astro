@@ -8,6 +8,7 @@ import Benefits from '@/components/sections/Benefits.astro';
 import Applications from '@/components/sections/Applications.astro';
 import Audience from '@/components/sections/Audience.astro';
 import Documents from '@/components/sections/Documents.astro';
+import Faq from '@/components/sections/Faq.astro';
 import Container from '@/components/ui/Container.astro';
 import { contacts } from '@/data/contacts';
 import { t, type Locale } from '@/i18n';
@@ -31,6 +32,7 @@ const dict = t(locale);
     <Applications locale={locale} />
     <Audience locale={locale} />
     <Documents locale={locale} />
+    <Faq locale={locale} />
   </main>
 
   <footer class="border-t border-line">

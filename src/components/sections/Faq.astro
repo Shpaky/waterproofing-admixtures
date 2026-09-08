@@ -1,0 +1,41 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import Section from '@/components/ui/Section.astro';
+import { t, type Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const dict = t(locale).faq;
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: dict.items.map((i) => ({
+    '@type': 'Question',
+    name: i.q,
+    acceptedAnswer: { '@type': 'Answer', text: i.a },
+  })),
+});
+---
+
+<Section id="faq" title={dict.title} eyebrow={dict.eyebrow}>
+  <div class="mx-auto max-w-3xl divide-y divide-line rounded-lg border border-line">
+    {
+      dict.items.map((item, i) => (
+        <details class="group" name="faq" open={i === 0}>
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-bold hover:bg-surface-alt [&::-webkit-details-marker]:hidden">
+            <span>{item.q}</span>
+            <Icon
+              name="chevron-down"
+              class="size-5 shrink-0 text-brand-500 transition-transform duration-200 group-open:rotate-180"
+            />
+          </summary>
+          <p class="px-5 pb-5 text-ink-muted">{item.a}</p>
+        </details>
+      ))
+    }
+  </div>
+  <script is:inline type="application/ld+json" set:html={jsonLd} />
+</Section>

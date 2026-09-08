@@ -240,6 +240,44 @@ export const en = {
     request: 'Request',
     pending: 'On request',
   },
+  faq: {
+    eyebrow: 'FAQ',
+    title: 'Questions engineers and builders ask',
+    items: [
+      {
+        q: 'What is the dosage of D5?',
+        a: 'The reference dosage is 1% of cement weight, about 500 g per 50 kg bag. Exact dosage depends on the mix and exposure; we confirm it for your design and it is stated in the datasheet.',
+      },
+      {
+        q: 'Does D5 change strength or workability?',
+        a: 'No reduction in strength. Workability stays within the usual range; if you use a superplasticizer, keep it. D5 is compatible with common admixtures, and we check unusual combinations on request.',
+      },
+      {
+        q: 'Can it be added at the RMC plant?',
+        a: 'Yes. D5 is dosed at the batching plant like any powder admixture, or added to the truck mixer on site with an extra 3–5 minutes of mixing.',
+      },
+      {
+        q: 'Does it work for existing concrete?',
+        a: 'D5 is for new concrete. For structures already built, use D5 Aqua Stop on active leaks and ask us about the surface-applied option for larger areas.',
+      },
+      {
+        q: 'How is curing affected?',
+        a: 'Standard wet curing applies. Moisture is what starts the crystal growth, so the usual 7 days of curing help D5 work.',
+      },
+      {
+        q: 'What about negative-side pressure?',
+        a: 'Crystals form throughout the concrete, so D5 resists water from either side. This is a key difference from sheet membranes.',
+      },
+      {
+        q: 'How fast is delivery in India?',
+        a: 'Stock is held in India. Typical dispatch is 1–3 working days; large volumes are scheduled from the next shipment from Russia.',
+      },
+      {
+        q: 'How do I get a price?',
+        a: 'Message us on WhatsApp with the volume of concrete or number of bags and the delivery city. We reply with a quote the same working day.',
+      },
+    ],
+  },
   cta: { call: 'Call us', whatsapp: 'WhatsApp', telegram: 'Telegram' },
   footer: { madeIn: 'Made in Russia', rights: 'All rights reserved.' },
   notFound: { title: 'Page not found', back: 'Back to home' },

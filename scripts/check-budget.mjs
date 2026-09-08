@@ -17,9 +17,9 @@ let failed = false;
 for (const page of pages) {
   const html = readFileSync(page, 'utf8');
   const srcs = [...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map((m) => m[1]);
-  const inline = [...html.matchAll(/<script(?![^>]*src=)[^>]*>([\s\S]*?)<\/script>/g)].map(
-    (m) => m[1],
-  );
+  const inline = [...html.matchAll(/<script(?![^>]*src=)([^>]*)>([\s\S]*?)<\/script>/g)]
+    .filter((m) => !/application\/ld\+json/.test(m[1])) // structured data is not JS
+    .map((m) => m[2]);
   let bytes = inline.reduce((n, s) => n + Buffer.byteLength(s), 0);
   for (const src of srcs) {
     if (/^https?:/.test(src)) continue; // third-party scripts are not budgeted
