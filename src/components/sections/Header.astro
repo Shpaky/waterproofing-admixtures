@@ -15,7 +15,7 @@ const linkClass =
 
 <header class="sticky top-0 z-40 border-b border-line bg-surface/90 backdrop-blur-sm">
   <div class="mx-auto flex max-w-content items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
-    <a href={localePath(locale)} class="flex items-center gap-2" aria-label={dict.nav.home}>
+    <a href={localePath(locale)} class="flex items-center gap-2">
       <span class="grid size-9 place-items-center rounded-md bg-brand-700 text-ink-inverse">
         <Icon name="drop" class="size-5" />
       </span>
@@ -53,6 +53,7 @@ const linkClass =
                 title={localeNames[l]}
                 class:list={[
                   'block rounded-sm px-2 py-1 font-semibold uppercase hover:bg-brand-50',
+                  l === 'hi' && 'font-devanagari-ui',
                   l === locale ? 'bg-brand-50 text-brand-700' : 'text-ink-muted',
                 ]}
               >
@@ -110,6 +111,7 @@ const linkClass =
                   aria-current={l === locale ? 'page' : undefined}
                   class:list={[
                     'block rounded-sm border px-3 py-2 text-sm font-semibold',
+                    l === 'hi' && 'font-devanagari-ui',
                     l === locale
                       ? 'border-brand-500 bg-brand-50 text-brand-700'
                       : 'border-line text-ink-muted',

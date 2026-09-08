@@ -14,7 +14,7 @@ const dict = t(locale).applications;
   <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
     {
       dict.items.map((item) => (
-        <li class="flex gap-4 rounded-lg border border-brand-100/15 bg-brand-900/60 p-5">
+        <li class="flex gap-4 rounded-lg border border-brand-100/15 bg-brand-900 p-5">
           <span class="grid size-11 shrink-0 place-items-center rounded-md bg-brand-500/30 text-brand-100">
             <Icon name={item.icon as IconName} class="size-6" />
           </span>
