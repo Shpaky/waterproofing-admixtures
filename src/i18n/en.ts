@@ -4,6 +4,10 @@ export const en = {
     description:
       'D5 crystalline admixture and D5 Aqua Stop repair mix. Made in Russia, supplied in India. Call or message us on WhatsApp.',
   },
+  company: {
+    role: 'Operator promoting Russian goods in India',
+    pavilion: 'Official operator of the Russian national pavilion Made in Russia in Navi Mumbai',
+  },
   nav: {
     home: 'Home',
     skip: 'Skip to content',
@@ -35,7 +39,7 @@ export const en = {
       {
         icon: 'shield',
         title: 'Made in Russia',
-        text: 'Manufactured under the national export brand',
+        text: 'Official operator of the Made in Russia pavilion in Navi Mumbai',
       },
       {
         icon: 'truck',
@@ -294,7 +298,8 @@ export const en = {
   footer: {
     madeIn: 'Made in Russia',
     rights: 'All rights reserved.',
-    tagline: 'D5 waterproofing admixtures for concrete. Official supply to India.',
+    tagline:
+      'RAI FAMILY CORP LLP promotes Russian goods in India and operates the Russian national pavilion Made in Russia in Navi Mumbai. D5 waterproofing admixtures for concrete, official supply to India.',
     nav: 'Sections',
     languages: 'Languages',
     contacts: 'Contacts',

@@ -32,10 +32,17 @@ const jsonLd = JSON.stringify({
   '@type': 'Organization',
   name: contacts.company,
   legalName: contacts.legalName,
+  description: `${dict.company.role}. ${dict.company.pavilion}.`,
   url: new URL(import.meta.env.BASE_URL, Astro.site).href,
   telephone: contacts.phoneHref.replace('tel:', ''),
   email: contacts.email,
-  address: { '@type': 'PostalAddress', streetAddress: contacts.address.en, addressCountry: 'IN' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: contacts.address.en,
+    addressLocality: 'Navi Mumbai',
+    addressRegion: 'Maharashtra',
+    addressCountry: 'IN',
+  },
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: contacts.phoneHref.replace('tel:', ''),
