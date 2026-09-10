@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: 'D5 Waterproofing Admixtures for Concrete',
     description:
-      'D5 complex multifunctional admixture: waterproof (W20+), high-strength, sulphate- and frost-resistant concrete. Made in Russia, supplied in India. Message us on WhatsApp.',
+      'D5 complex multifunctional admixture: waterproof (W20+), high-strength, sulphate- and frost-resistant concrete. Made in Russia, supplied in India by Rai Family Corp.',
   },
   company: {
     role: 'Operator promoting Russian goods in India',
@@ -51,9 +51,9 @@ export const en = {
         text: 'Technical and safety datasheets in English and Russian, certificates',
       },
       {
-        icon: 'phone',
+        icon: 'globe',
         title: 'Engineer on the line',
-        text: 'Advice on dosage and application by phone',
+        text: 'Advice on dosage and application from an engineer',
       },
     ],
   },
@@ -197,7 +197,7 @@ export const en = {
         text: 'Oil storage tanks, floating platforms, structures in sea water.',
       },
       {
-        icon: 'phone',
+        icon: 'globe',
         title: 'Repair with D5 Aqua Stop',
         text: 'Active leaks in joints, cracks, tie holes and pipe penetrations.',
       },
@@ -226,7 +226,7 @@ export const en = {
         points: [
           'Simple dosage per bag of cement',
           'Aqua Stop for leaks in existing joints and cracks',
-          'Advice by phone in your language',
+          'Advice in your language',
         ],
         cta: 'Ask a question',
       },
@@ -285,11 +285,16 @@ export const en = {
       },
       {
         q: 'How do I get a price?',
-        a: 'Message us on WhatsApp with the volume of concrete or number of bags and the delivery city. We reply with a quote the same working day.',
+        a: 'Use the contact form on the Rai Family Corp website: send the volume of concrete or number of bags and the delivery city. We reply with a quote the same working day.',
       },
     ],
   },
-  cta: { quick: 'Quick contact', call: 'Call us', whatsapp: 'WhatsApp', telegram: 'Telegram' },
+  cta: {
+    quick: 'Quick contact',
+    contact: 'Contact us',
+    parent: 'Rai Family Corp',
+    parentFull: 'Rai Family Corp website',
+  },
   footer: {
     madeIn: 'Made in Russia',
     rights: 'All rights reserved.',

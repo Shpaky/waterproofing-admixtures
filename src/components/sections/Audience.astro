@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button.astro';
 import Card from '@/components/ui/Card.astro';
 import Icon, { type IconName } from '@/components/ui/Icon.astro';
 import Section from '@/components/ui/Section.astro';
-import { contacts } from '@/data/contacts';
+import { contactsUrl } from '@/data/contacts';
 import { t, type Locale } from '@/i18n';
 
 interface Props {
@@ -32,8 +32,8 @@ const dict = t(locale).audience;
             ))}
           </ul>
           <Button
-            href={contacts.whatsapp}
-            icon="whatsapp"
+            href={contactsUrl(locale)}
+            icon="arrow-right"
             variant="secondary"
             class="mt-auto self-start"
           >

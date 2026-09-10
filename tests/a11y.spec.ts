@@ -41,7 +41,7 @@ for (const route of routes) {
 }
 
 test('mobile menu opens and closes from the keyboard', async ({ page, isMobile, viewport }) => {
-  test.skip(!!viewport && viewport.width >= 1024, 'desktop shows inline nav');
+  test.skip(!!viewport && viewport.width >= 1280, 'desktop shows inline nav');
   void isMobile;
   await page.goto('./');
   const toggle = page.locator('[data-menu-toggle]');
