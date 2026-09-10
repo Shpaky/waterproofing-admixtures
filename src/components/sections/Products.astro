@@ -4,6 +4,7 @@ import Card from '@/components/ui/Card.astro';
 import Icon from '@/components/ui/Icon.astro';
 import Section from '@/components/ui/Section.astro';
 import { contacts } from '@/data/contacts';
+import { documents } from '@/data/documents';
 import { products } from '@/data/products';
 import { t, type Locale } from '@/i18n';
 
@@ -14,6 +15,11 @@ const { locale } = Astro.props;
 const dict = t(locale);
 const p = dict.products;
 const needsVerify = products.some((x) => x.specs.some((s) => s.verify));
+const base = import.meta.env.BASE_URL;
+const tdsFor = (id: string) => {
+  const doc = documents.find((d) => d.id === `${id}-tds`);
+  return doc?.files?.[locale] ?? doc?.files?.en;
+};
 
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
@@ -24,6 +30,9 @@ const jsonLd = JSON.stringify({
     category: product.kind[locale],
     brand: { '@type': 'Brand', name: 'D5' },
     countryOfOrigin: 'RU',
+    ...(product.manufacturer && {
+      manufacturer: { '@type': 'Organization', name: product.manufacturer.name },
+    }),
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',
@@ -80,9 +89,19 @@ const jsonLd = JSON.stringify({
             <Button href={contacts.whatsapp} icon="whatsapp">
               {dict.cta.whatsapp}
             </Button>
-            <Button href={contacts.whatsapp} icon="document" variant="secondary">
-              {p.askTds}
-            </Button>
+            {tdsFor(product.id) ? (
+              <Button
+                href={`${base}${tdsFor(product.id)!.href}`}
+                icon="document"
+                variant="secondary"
+              >
+                {p.tds}
+              </Button>
+            ) : (
+              <Button href={contacts.whatsapp} icon="document" variant="secondary">
+                {p.askTds}
+              </Button>
+            )}
           </div>
         </Card>
       ))

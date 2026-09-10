@@ -18,7 +18,8 @@ const base = import.meta.env.BASE_URL;
     {
       documents.map((doc) => {
         const title = doc.title[locale];
-        const available = Boolean(doc.href);
+        const file = doc.files?.[locale] ?? doc.files?.en;
+        const available = Boolean(file);
         return (
           <li class="flex items-start gap-4 rounded-lg border border-line bg-surface p-5">
             <span
@@ -33,11 +34,11 @@ const base = import.meta.env.BASE_URL;
               <h3 class="font-bold">{title}</h3>
               <p class="mt-0.5 text-sm text-ink-muted">
                 {doc.kind[locale]}
-                {available && doc.size ? ` · ${doc.size}` : ` · ${dict.pending}`}
+                {file ? ` · ${file.size}` : ` · ${dict.pending}`}
               </p>
-              {available ? (
+              {file ? (
                 <a
-                  href={`${base}${doc.href}`}
+                  href={`${base}${file.href}`}
                   class="mt-3 inline-flex items-center gap-1 font-semibold text-brand-700 hover:underline"
                   download
                 >
