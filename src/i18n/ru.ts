@@ -296,7 +296,7 @@ export const ru: Dictionary = {
     quick: 'Быстрая связь',
     contact: 'Связаться с нами',
     parent: 'Rai Family Corp',
-    parentFull: 'Сайт Rai Family Corp',
+    parentFull: 'Сайт компании Rai Family Corp',
   },
   footer: {
     madeIn: 'Сделано в России',
