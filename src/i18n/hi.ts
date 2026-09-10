@@ -287,7 +287,7 @@ export const hi: Dictionary = {
     quick: 'त्वरित संपर्क',
     contact: 'हमसे संपर्क करें',
     parent: 'Rai Family Corp',
-    parentFull: 'Rai Family Corp वेबसाइट',
+    parentFull: 'Rai Family Corp कंपनी वेबसाइट',
   },
   footer: {
     madeIn: 'रूस में निर्मित',

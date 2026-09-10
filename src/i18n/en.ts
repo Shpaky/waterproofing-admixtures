@@ -293,7 +293,7 @@ export const en = {
     quick: 'Quick contact',
     contact: 'Contact us',
     parent: 'Rai Family Corp',
-    parentFull: 'Rai Family Corp website',
+    parentFull: 'Rai Family Corp company website',
   },
   footer: {
     madeIn: 'Made in Russia',

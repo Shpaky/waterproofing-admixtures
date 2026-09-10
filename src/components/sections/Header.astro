@@ -1,7 +1,7 @@
 ---
 import Button from '@/components/ui/Button.astro';
 import Icon from '@/components/ui/Icon.astro';
-import { contactsUrl } from '@/data/contacts';
+import { parentUrl } from '@/data/contacts';
 import { localeNames, localePath, locales, t, type Locale } from '@/i18n';
 
 interface Props {
@@ -66,7 +66,7 @@ const linkClass =
     </nav>
 
     <div class="ml-auto hidden md:block xl:ml-0">
-      <Button href={contactsUrl(locale)} icon="arrow-right">{dict.cta.contact}</Button>
+      <Button href={parentUrl(locale)} icon="globe">{dict.cta.parent}</Button>
     </div>
 
     <button
@@ -123,8 +123,8 @@ const linkClass =
             ))
           }
         </ul>
-        <Button href={contactsUrl(locale)} icon="arrow-right" class="w-full md:hidden">
-          {dict.cta.contact}
+        <Button href={parentUrl(locale)} icon="globe" class="w-full md:hidden">
+          {dict.cta.parentFull}
         </Button>
       </div>
     </nav>
