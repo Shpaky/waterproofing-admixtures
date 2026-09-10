@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: 'D5 Waterproofing Admixtures for Concrete',
     description:
-      'D5 crystalline admixture and D5 Aqua Stop repair mix. Made in Russia, supplied in India. Call or message us on WhatsApp.',
+      'D5 complex multifunctional admixture: waterproof (W20+), high-strength, sulphate- and frost-resistant concrete. Made in Russia, supplied in India. Message us on WhatsApp.',
   },
   company: {
     role: 'Operator promoting Russian goods in India',
@@ -25,14 +25,14 @@ export const en = {
   hero: {
     eyebrow: 'Made in Russia · Supplied in India',
     title: 'Concrete that stays dry for the life of the structure',
-    lead: 'D5 crystalline admixture turns the concrete itself into the waterproofing layer. D5 Aqua Stop seals active leaks in minutes. One supplier, technical support in India.',
-    note: 'Technical datasheets and samples on request',
+    lead: 'D5 is a complex multifunctional admixture: one powder gives concrete water resistance W20 and above, about 30% more strength, sulphate and frost resistance. D5 Aqua Stop seals active leaks in minutes. One supplier, technical support in India.',
+    note: 'Technical and safety datasheets available below, samples on request',
     figure:
-      'Cross-section of concrete: D5 crystals fill pores and micro-cracks, water stays outside',
+      'Cross-section of concrete: D5 densifies the concrete body and seals pores and micro-cracks, water stays outside',
     points: [
-      'Added at batching, no extra work stages',
-      'Resists water pressure from both sides',
-      'Self-heals hairline cracks over time',
+      'Added dry at batching, no extra work stages',
+      'Water resistance W20+, cold joints watertight up to 12 bar',
+      'Self-seals through cracks up to 0.5 mm',
     ],
     trust: [
       {
@@ -45,7 +45,11 @@ export const en = {
         title: 'Delivery across India',
         text: 'Stock and dispatch from a warehouse in India',
       },
-      { icon: 'document', title: 'Documents', text: 'Datasheets, test reports and dosage guides' },
+      {
+        icon: 'document',
+        title: 'Documents',
+        text: 'Technical and safety datasheets in English and Russian, certificates',
+      },
       {
         icon: 'phone',
         title: 'Engineer on the line',
@@ -56,7 +60,7 @@ export const en = {
   how: {
     eyebrow: 'Problem and solution',
     title: 'Why concrete leaks, and how D5 stops it',
-    lead: 'Concrete is porous by nature. Capillaries, shrinkage cracks and cold joints let water through. Surface membranes cover the problem; D5 solves it inside the concrete.',
+    lead: 'Concrete is porous by nature. Excess mixing water, shrinkage cracks and cold joints let water through. Surface membranes cover the problem; D5 changes the concrete itself.',
     problemsTitle: 'Why ordinary concrete lets water in',
     problems: [
       {
@@ -78,20 +82,20 @@ export const en = {
     stepsTitle: 'How D5 works',
     steps: [
       {
-        title: 'Added at batching',
-        text: 'D5 is dosed into the mix at the plant or on site, like any other admixture. No change to the placing process.',
+        title: 'Less water, denser concrete',
+        text: 'The built-in superplasticizer cuts mixing water by 15–25% at the same slump, so far fewer capillary pores form in the first place.',
       },
       {
-        title: 'Reacts with cement',
-        text: 'Active chemicals react with moisture and hydration by-products to grow insoluble crystals.',
+        title: 'Pozzolans fill the pores',
+        text: 'Active pozzolans and finely ground rocks react with the lime released by cement hydration and form additional binder that fills the remaining pores and micro-cracks.',
       },
       {
-        title: 'Seals pores for good',
-        text: 'Crystals fill capillaries and micro-cracks throughout the concrete body. When new water arrives, the reaction restarts and seals new hairline cracks.',
+        title: 'Cracks seal themselves',
+        text: 'Through cracks up to 0.5 mm that appear under dynamic loads self-seal. The effect is part of the concrete and lasts for the whole service life.',
       },
     ],
     result:
-      'The result is concrete that blocks water from either side and keeps doing so for the life of the structure, with no membrane to tear or reapply.',
+      'The result is concrete with water resistance grade W20 and above, cold joints watertight up to 12 bar, about 30% higher strength, sulphate resistance on ordinary Portland cement and frost resistance F400+, with no membrane to tear or reapply.',
   },
   products: {
     eyebrow: 'Products',
@@ -99,6 +103,7 @@ export const en = {
     lead: 'Two products that work as one system: D5 protects the concrete body, D5 Aqua Stop handles leaks at joints and defects.',
     specsTitle: 'Key data',
     verify: 'Preliminary values, confirmed in the technical datasheet',
+    tds: 'Datasheet (PDF)',
     askTds: 'Request datasheet',
     systemTitle: 'Used together',
     systemText:
@@ -112,17 +117,17 @@ export const en = {
       {
         icon: 'shield',
         title: 'Permanent',
-        text: 'Crystals are part of the concrete and stay active for its whole service life.',
+        text: 'Water resistance W20 and above is maintained for the entire life of the structure.',
       },
       {
         icon: 'crystal',
-        title: 'Self-healing',
-        text: 'New hairline cracks reseal on contact with water, without repair work.',
+        title: 'Self-sealing',
+        text: 'Through cracks up to 0.5 mm seal themselves, without repair work.',
       },
       {
         icon: 'drop',
-        title: 'Both pressure sides',
-        text: 'Works whether water pushes from outside or from inside a tank.',
+        title: 'Stronger concrete',
+        text: '28-day strength up by about 30%, strength gain in the first days at least twice as fast, or 15–20% less cement.',
       },
       {
         icon: 'truck',
@@ -131,24 +136,27 @@ export const en = {
       },
       {
         icon: 'check',
-        title: 'Cannot be damaged',
-        text: 'Nothing to tear during backfilling or rebar installation.',
+        title: 'Aggressive environments',
+        text: 'Sulphate resistance on ordinary Portland cement: sea water, oil and oil products. Frost resistance F400 and more.',
       },
       {
         icon: 'document',
-        title: 'Easy to specify',
-        text: 'One line in the concrete mix design, one datasheet for the engineer.',
+        title: 'Safe and easy to specify',
+        text: 'Approved for drinking-water structures, protects reinforcement from corrosion. One line in the mix design, one datasheet for the engineer.',
       },
     ],
     compareTitle: 'D5 compared with surface waterproofing',
-    compareCaption:
-      'Comparison of D5 crystalline admixture, cementitious coating and sheet membrane',
+    compareCaption: 'Comparison of D5 complex admixture, cementitious coating and sheet membrane',
     criterion: 'Criterion',
     columns: ['D5 admixture', 'Cementitious coating', 'Sheet membrane'],
     rows: [
       { name: 'Where it works', values: ['Whole concrete body', 'Surface layer', 'Surface layer'] },
-      { name: 'Self-heals cracks', values: ['yes', 'no', 'no'] },
-      { name: 'Negative-side pressure', values: ['yes', 'partial', 'no'] },
+      { name: 'Self-seals cracks', values: ['yes', 'no', 'no'] },
+      {
+        name: 'Watertight cold joints',
+        values: ['Up to 12 bar', 'Needs tape or strip', 'Needs welding'],
+      },
+      { name: 'Effect on strength', values: ['About +30%', 'None', 'None'] },
       { name: 'Damage during backfill', values: ['Not possible', 'Possible', 'Likely'] },
       {
         name: 'Extra work stages',
@@ -161,32 +169,32 @@ export const en = {
   applications: {
     eyebrow: 'Applications',
     title: 'Where D5 is used',
-    lead: 'Any concrete that meets water: below ground, holding water, or exposed to monsoon rain.',
+    lead: 'Any concrete that meets water: below ground, holding water, or exposed to monsoon rain. Applications listed in the manufacturer datasheet.',
     items: [
       {
         icon: 'shield',
-        title: 'Foundations and basements',
-        text: 'Rafts, retaining walls, lift pits, underground parking.',
+        title: 'Foundations and underground parking',
+        text: 'Rafts, retaining walls, lift pits, basements in water-saturated soil.',
       },
       {
         icon: 'drop',
-        title: 'Water tanks and reservoirs',
-        text: 'Overhead and underground tanks, STP and WTP structures, swimming pools.',
+        title: 'Drinking-water tanks and pools',
+        text: 'Reservoirs for drinking water, swimming pools, fish-breeding pools.',
       },
       {
         icon: 'crystal',
-        title: 'Precast and RMC',
-        text: 'Precast elements, box culverts, pipes, ready-mix supply for waterproof grades.',
+        title: 'Treatment facilities',
+        text: 'Sewage and water treatment plants, sumps and channels.',
       },
       {
         icon: 'truck',
-        title: 'Infrastructure',
-        text: 'Tunnels, bridges, metro stations, canals and dams.',
+        title: 'Tunnels and hydraulic structures',
+        text: 'Underground and underwater tunnels, metro, canals and dams.',
       },
       {
         icon: 'document',
-        title: 'Roof slabs and terraces',
-        text: 'Flat roofs and podium slabs exposed to standing rainwater.',
+        title: 'Oil storage and marine',
+        text: 'Oil storage tanks, floating platforms, structures in sea water.',
       },
       {
         icon: 'phone',
@@ -238,7 +246,7 @@ export const en = {
   documents: {
     eyebrow: 'Documents',
     title: 'Datasheets, reports and certificates',
-    lead: 'Everything an engineer or a tender committee needs. Files are being prepared for publication; until then we send them on request within a working day.',
+    lead: 'Everything an engineer or a tender committee needs. D5 technical and safety datasheets are available in English and Russian; the rest we send on request within a working day.',
     download: 'Download',
     request: 'Request',
     pending: 'On request',
@@ -249,31 +257,31 @@ export const en = {
     items: [
       {
         q: 'What is the dosage of D5?',
-        a: 'The reference dosage is 1% of cement weight, about 500 g per 50 kg bag. Exact dosage depends on the mix and exposure; we confirm it for your design and it is stated in the datasheet.',
+        a: 'The recommended dosage is 2–3% of the total cement weight, that is 1–1.5 kg per 50 kg bag of cement. The datasheet asks for preliminary laboratory tests with the cement and aggregates of each plant to confirm the dosage.',
       },
       {
         q: 'Does D5 change strength or workability?',
-        a: 'No reduction in strength. Workability stays within the usual range; if you use a superplasticizer, keep it. D5 is compatible with common admixtures, and we check unusual combinations on request.',
+        a: 'Both improve. 28-day strength rises by about 30% compared with concrete without admixtures, or you can cut cement by 15–20%. Workability goes from P1 to P5, or water is reduced by 15–25% at equal slump. D5 already contains a superplasticizer, so no separate plasticizer is needed and the water content must account for it.',
       },
       {
-        q: 'Can it be added at the RMC plant?',
-        a: 'Yes. D5 is dosed at the batching plant like any powder admixture, or added to the truck mixer on site with an extra 3–5 minutes of mixing.',
+        q: 'How is D5 added at the plant or on site?',
+        a: 'Dry, into the mixer together with sand or cement. Do not pre-mix it with water. Mixing time is 30–90 seconds depending on the mixer and the required flowability; within that time D5 is evenly distributed through the mix.',
       },
       {
         q: 'Does it work for existing concrete?',
-        a: 'D5 is for new concrete. For structures already built, use D5 Aqua Stop on active leaks and ask us about the surface-applied option for larger areas.',
+        a: 'D5 is dosed into fresh concrete or mortar. For structures already built, use D5 Aqua Stop on active leaks and ask us about the repair mortar option for larger areas.',
       },
       {
-        q: 'How is curing affected?',
-        a: 'Standard wet curing applies. Moisture is what starts the crystal growth, so the usual 7 days of curing help D5 work.',
+        q: 'What about cold joints?',
+        a: 'Cold joints in concrete with D5 do not leak under water pressure up to 12 bar (1.2 MPa), provided the surface is cleaned of cement laitance 6–8 hours after pouring, washed and wetted, and washed again before the next pour. No extra waterstop is needed at that pressure.',
       },
       {
-        q: 'What about negative-side pressure?',
-        a: 'Crystals form throughout the concrete, so D5 resists water from either side. This is a key difference from sheet membranes.',
+        q: 'Is it safe for reinforcement and drinking water?',
+        a: 'Yes. Chloride ion content is 0.065%. D5 is not aggressive to reinforcing steel, protects it from corrosion and increases adhesion between concrete and reinforcement by 36%. It is approved for concrete and reinforced-concrete structures in contact with drinking water.',
       },
       {
         q: 'How fast is delivery in India?',
-        a: 'Stock is held in India. Typical dispatch is 1–3 working days; large volumes are scheduled from the next shipment from Russia.',
+        a: 'Stock is held in India. Typical dispatch is 1–3 working days; large volumes are scheduled from the next shipment from Russia. Packaging: 15 kg paper bags or 1000 kg big bags.',
       },
       {
         q: 'How do I get a price?',
