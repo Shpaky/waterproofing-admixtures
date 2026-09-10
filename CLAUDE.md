@@ -31,7 +31,10 @@ tailwind, eslint/prettier с astro-плагинами, playwright + axe, lhci).
 - Ссылки и ассеты учитывают `base` (`import.meta.env.BASE_URL`). Сайт живёт
   на `https://shpaky.github.io/waterproofing-admixtures/`
   (`site: 'https://shpaky.github.io'`, `base: '/waterproofing-admixtures'`).
-- Конверсия только через ссылки `tel:`, WhatsApp и Telegram. Форм и бэкенда нет.
+- На сайте нет собственных контактов: ни `tel:`, ни `mailto:`, ни мессенджеров. Все
+  контактные ссылки ведут на хаб-сайт оператора `https://shpaky.github.io/rai-family-corp/`
+  (раздел `#contacts`) через `contactsUrl(locale)` из `src/data/contacts.ts`, с сохранением
+  локали (`/ru/`, `/hi/`). Форм и бэкенда нет.
 - Семантический HTML. Каждая интерактивная сущность доступна с клавиатуры.
   Компилятор Astro 7 строгий: все не-void теги закрываются.
 - Все анимации отключаются при prefers-reduced-motion

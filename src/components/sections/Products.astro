@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button.astro';
 import Card from '@/components/ui/Card.astro';
 import Icon from '@/components/ui/Icon.astro';
 import Section from '@/components/ui/Section.astro';
-import { contacts } from '@/data/contacts';
+import { contacts, contactsUrl } from '@/data/contacts';
 import { documents } from '@/data/documents';
 import { products } from '@/data/products';
 import { t, type Locale } from '@/i18n';
@@ -86,8 +86,8 @@ const jsonLd = JSON.stringify({
             ))}
           </dl>
           <div class="mt-auto flex flex-wrap gap-3 pt-2">
-            <Button href={contacts.whatsapp} icon="whatsapp">
-              {dict.cta.whatsapp}
+            <Button href={contactsUrl(locale)} icon="arrow-right">
+              {dict.cta.contact}
             </Button>
             {tdsFor(product.id) ? (
               <Button
@@ -98,7 +98,7 @@ const jsonLd = JSON.stringify({
                 {p.tds}
               </Button>
             ) : (
-              <Button href={contacts.whatsapp} icon="document" variant="secondary">
+              <Button href={contactsUrl(locale)} icon="document" variant="secondary">
                 {p.askTds}
               </Button>
             )}

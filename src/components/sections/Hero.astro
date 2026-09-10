@@ -1,7 +1,7 @@
 ---
 import Button from '@/components/ui/Button.astro';
 import Icon, { type IconName } from '@/components/ui/Icon.astro';
-import { contacts } from '@/data/contacts';
+import { contactsUrl, parentUrl } from '@/data/contacts';
 import { t, type Locale } from '@/i18n';
 
 interface Props {
@@ -36,9 +36,9 @@ const dict = t(locale);
         }
       </ul>
       <div class="mt-2 flex flex-wrap gap-3">
-        <Button href={contacts.whatsapp} icon="whatsapp" size="lg">{dict.cta.whatsapp}</Button>
-        <Button href={contacts.phoneHref} icon="phone" variant="inverse" size="lg">
-          {dict.cta.call}
+        <Button href={contactsUrl(locale)} icon="arrow-right" size="lg">{dict.cta.contact}</Button>
+        <Button href={parentUrl(locale)} icon="globe" variant="inverse" size="lg">
+          {dict.cta.parentFull}
         </Button>
       </div>
       <p class="text-sm text-brand-100/80">{dict.hero.note}</p>

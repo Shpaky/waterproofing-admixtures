@@ -35,9 +35,11 @@ test.describe('links', () => {
             if (!href.startsWith(base)) problems.push(`link ignores base: ${href}`);
           } else if (/^https?:/.test(href)) {
             if (!(a.rel || '').includes('noopener')) problems.push(`no noopener: ${href}`);
-          } else if (!/^(tel|mailto):/.test(href)) {
+          } else {
             problems.push(`unexpected href ${href}`);
           }
+          if (/^(tel|mailto):|wa\.me|t\.me/.test(href))
+            problems.push(`direct contact link: ${href}`);
         }
         for (const el of Array.from(document.querySelectorAll<HTMLElement>('[src],[href]'))) {
           const v = el.getAttribute('src') ?? el.getAttribute('href') ?? '';
@@ -88,7 +90,7 @@ test('reduced motion disables transitions and smooth scroll', async ({ page }) =
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('./');
   const { transition, scroll } = await page.evaluate(() => {
-    const btn = document.querySelector('main a[href^="https://wa.me"]') as HTMLElement;
+    const btn = document.querySelector('main a[href*="rai-family-corp"]') as HTMLElement;
     return {
       transition: getComputedStyle(btn).transitionDuration,
       scroll: getComputedStyle(document.documentElement).scrollBehavior,
@@ -117,4 +119,26 @@ test('404 page is built and marked noindex', () => {
   const html = readFileSync('dist/404.html', 'utf8');
   expect(html).toContain('name="robots" content="noindex"');
   expect(html).toContain('href="/waterproofing-admixtures/"');
+});
+
+test.describe('hub links keep the locale', () => {
+  const expected: Record<string, string> = {
+    './': 'https://shpaky.github.io/rai-family-corp/#contacts',
+    'ru/': 'https://shpaky.github.io/rai-family-corp/ru/#contacts',
+    'hi/': 'https://shpaky.github.io/rai-family-corp/hi/#contacts',
+  };
+  for (const route of routes) {
+    test(`contact links on ${route} point to ${expected[route]}`, async ({ page }) => {
+      await page.goto(route);
+      const hrefs = await page
+        .locator('a[href*="rai-family-corp"]')
+        .evaluateAll((els) => els.map((e) => e.getAttribute('href') ?? ''));
+      expect(hrefs.length).toBeGreaterThan(3);
+      const contactLinks = hrefs.filter((h) => h.endsWith('#contacts'));
+      expect(contactLinks.length).toBeGreaterThan(0);
+      for (const h of contactLinks) expect(h).toBe(expected[route]);
+      for (const h of hrefs.filter((h) => !h.endsWith('#contacts')))
+        expect(h).toBe(expected[route].replace('#contacts', ''));
+    });
+  }
 });

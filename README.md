@@ -1,8 +1,8 @@
 # D5 waterproofing admixtures — landing
 
 Static landing for D5 concrete admixtures supplied to India under the Made in Russia brand.
-Astro 7 + Tailwind 4, three locales (`/`, `/ru/`, `/hi/`), no backend: conversions are
-`tel:`, WhatsApp and Telegram links.
+Astro 7 + Tailwind 4, three locales (`/`, `/ru/`, `/hi/`), no backend: every contact link
+leads to the operator's hub site (Rai Family Corp, `#contacts`) in the matching locale.
 
 Live: https://shpaky.github.io/waterproofing-admixtures/
 
@@ -12,7 +12,7 @@ Nothing in the markup needs to change for routine updates.
 
 | What | Where |
 |---|---|
-| Company name, phone, WhatsApp, Telegram, e-mail | `src/data/contacts.ts` |
+| Company name, hub site URL and contacts anchor | `src/data/contacts.ts` |
 | Products, taglines, key data (`verify: true` shows an asterisk) | `src/data/products.ts` |
 | Documents list; add `href: 'docs/<file>.pdf'` once the PDF is in `public/docs/` | `src/data/documents.ts` |
 | All page copy per language | `src/i18n/en.ts`, `ru.ts`, `hi.ts` |
