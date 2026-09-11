@@ -3,8 +3,9 @@ import type { Locale } from '@/i18n';
 /**
  * Product catalogue. Every text field is localized; numeric specs are shared.
  * D5 data comes from the manufacturer's Technical Data Sheet dated 2026-01-16 and the
- * Safety Data Sheet dated 2026-04-28 (public/docs). Specs marked `verify: true` are
- * still placeholders (D5 Aqua Stop, until its datasheet arrives).
+ * Safety Data Sheet dated 2026-04-28 (public/docs). D5 Aqua Stop data comes from the
+ * manufacturer's DRAFT datasheet (2026-09-11) whose values still await plant test reports,
+ * hence `verify: true` on every Aqua Stop spec.
  */
 export type Localized = Record<Locale, string>;
 
@@ -130,48 +131,93 @@ export const products: Product[] = [
     id: 'd5-aqua-stop',
     name: 'D5 Aqua Stop',
     icon: 'drop',
+    manufacturer: {
+      name: 'Scientific and Production Enterprise TOKAR Co. Ltd',
+      address:
+        '19A Pozharskogo str., Vladikavkaz, 362002, Republic of North Ossetia-Alania, Russia',
+    },
     kind: {
-      en: 'Fast-setting water-stop repair mix',
-      ru: 'Быстротвердеющая смесь для остановки протечек',
-      hi: 'तेज़ी से जमने वाला वॉटर-स्टॉप रिपेयर मिक्स',
+      en: 'Brush-applied cementitious waterproofing mortar',
+      ru: 'Обмазочная цементная гидроизоляция',
+      hi: 'ब्रश से लगाया जाने वाला सीमेंट वॉटरप्रूफिंग मोर्टार',
     },
     tagline: {
-      en: 'Stops active leaks in minutes. For joints, cracks and cold seams.',
-      ru: 'Останавливает активные протечки за минуты. Для стыков, трещин и холодных швов.',
-      hi: 'सक्रिय रिसाव को मिनटों में रोकता है। जोड़ों, दरारों और कोल्ड सीम के लिए।',
+      en: 'Waterproofs existing concrete and masonry from either side of the water. Coat 2–5 mm, brush or spray.',
+      ru: 'Гидроизолирует существующий бетон и кладку с любой стороны воды. Слой 2–5 мм, кистью или торкретом.',
+      hi: 'मौजूदा कंक्रीट और चिनाई को पानी की किसी भी ओर से वॉटरप्रूफ करता है। 2–5 मिमी परत, ब्रश या स्प्रे से।',
     },
     description: {
-      en: 'A dry mix that sets under running water. Mix with water, press into the leak, hold. Used together with D5 for a complete waterproofing system.',
-      ru: 'Сухая смесь, схватывающаяся под напором воды. Затворить водой, вдавить в место протечки, удержать. Вместе с D5 образует полную систему гидроизоляции.',
-      hi: 'सूखा मिश्रण जो बहते पानी में भी जम जाता है। पानी में मिलाएँ, रिसाव में दबाएँ, पकड़े रहें। D5 के साथ मिलकर संपूर्ण वॉटरप्रूफिंग प्रणाली बनाता है।',
+      en: 'A one-component dry mix of special cements, graded quartz sand, water-repellent and polymer admixtures, based on the same active components as D5. Mixed with water on site and worked into a pre-wetted substrate in two or more coats; the coating penetrates the pores and holds positive and negative water pressure.',
+      ru: 'Однокомпонентная сухая смесь специальных цементов, фракционированного кварцевого песка, гидрофобизирующих и полимерных добавок на базе тех же активных компонентов, что и D5. Затворяется водой на объекте и втирается в увлажнённое основание в два и более слоя; покрытие проникает в поры и держит прямое и обратное давление воды.',
+      hi: 'विशेष सीमेंट, ग्रेडेड क्वार्ट्ज़ रेत, जल-विकर्षक और पॉलीमर एडमिक्सचर का एक-घटक सूखा मिश्रण, D5 जैसे ही सक्रिय घटकों पर आधारित। साइट पर पानी में मिलाकर पहले से गीली सतह पर दो या अधिक कोट में रगड़ा जाता है; कोटिंग छिद्रों में प्रवेश करती है और सकारात्मक व नकारात्मक जल दबाव झेलती है।',
     },
     bullets: [
-      { en: 'Sets in 3–5 minutes', ru: 'Схватывание за 3–5 минут', hi: '3–5 मिनट में जम जाता है' },
       {
-        en: 'Works on wet and leaking surfaces',
-        ru: 'Работает на мокрых и текущих поверхностях',
-        hi: 'गीली और रिसती सतहों पर काम करता है',
+        en: 'Positive pressure W12, negative pressure W8',
+        ru: 'Прямое давление W12, обратное W8',
+        hi: 'सकारात्मक दबाव W12, नकारात्मक दबाव W8',
       },
       {
-        en: 'Chloride-free, safe for reinforcement',
-        ru: 'Без хлоридов, безопасна для арматуры',
-        hi: 'क्लोराइड-मुक्त, सरिया के लिए सुरक्षित',
+        en: 'Basements from the inside, tanks, pools, wet rooms, old waterproofing repair',
+        ru: 'Подвалы изнутри, резервуары, бассейны, санузлы, ремонт старой гидроизоляции',
+        hi: 'अंदर से बेसमेंट, टैंक, पूल, गीले कमरे, पुरानी वॉटरप्रूफिंग की मरम्मत',
+      },
+      {
+        en: 'Adhesion to concrete at least 1 MPa, frost resistance F100',
+        ru: 'Адгезия к бетону не менее 1 МПа, морозостойкость F100',
+        hi: 'कंक्रीट से आसंजन कम से कम 1 MPa, फ्रॉस्ट प्रतिरोध F100',
+      },
+      {
+        en: 'About 60 minutes pot life, next coat after 4–5 hours',
+        ru: 'Около 60 минут жизнеспособности, следующий слой через 4–5 часов',
+        hi: 'लगभग 60 मिनट पॉट लाइफ, अगला कोट 4–5 घंटे बाद',
       },
     ],
     specs: [
       {
-        label: { en: 'Setting time', ru: 'Время схватывания', hi: 'जमने का समय' },
-        value: { en: '3–5 min', ru: '3–5 мин', hi: '3–5 मिनट' },
+        label: { en: 'Water tightness', ru: 'Водонепроницаемость', hi: 'जल-रोधकता' },
+        value: {
+          en: 'W12 positive, W8 negative',
+          ru: 'W12 прямое, W8 обратное',
+          hi: 'W12 सकारात्मक, W8 नकारात्मक',
+        },
+        verify: true,
+      },
+      {
+        label: { en: 'Coating thickness', ru: 'Толщина покрытия', hi: 'कोटिंग की मोटाई' },
+        value: {
+          en: '2–5 mm in 2 or more coats',
+          ru: '2–5 мм за 2 и более слоя',
+          hi: '2 या अधिक कोट में 2–5 मिमी',
+        },
+        verify: true,
+      },
+      {
+        label: { en: 'Consumption', ru: 'Расход', hi: 'खपत' },
+        value: {
+          en: 'approx. 1.5 kg/m² per 1 mm',
+          ru: 'около 1,5 кг/м² на 1 мм',
+          hi: 'लगभग 1.5 किग्रा/मी² प्रति 1 मिमी',
+        },
+        verify: true,
+      },
+      {
+        label: {
+          en: 'Application temperature',
+          ru: 'Температура применения',
+          hi: 'लगाने का तापमान',
+        },
+        value: { en: '+5 to +30 °C', ru: 'от +5 до +30 °C', hi: '+5 से +30 °C' },
         verify: true,
       },
       {
         label: { en: 'Packaging', ru: 'Фасовка', hi: 'पैकेजिंग' },
-        value: { en: '5 kg pail', ru: 'Ведро 5 кг', hi: '5 किग्रा बाल्टी' },
+        value: { en: '20 kg bags', ru: 'Мешки 20 кг', hi: '20 किग्रा बैग' },
         verify: true,
       },
       {
         label: { en: 'Shelf life', ru: 'Срок хранения', hi: 'शेल्फ लाइफ' },
-        value: { en: '6 months', ru: '6 месяцев', hi: '6 महीने' },
+        value: { en: '12 months', ru: '12 месяцев', hi: '12 महीने' },
         verify: true,
       },
     ],
