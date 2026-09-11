@@ -14,12 +14,12 @@ const dict = t(locale).how;
 <Section id="how-it-works" title={dict.title} eyebrow={dict.eyebrow} lead={dict.lead}>
   <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
     <div>
-      <h3 class="mb-6 text-h3 text-accent">{dict.problemsTitle}</h3>
+      <h3 class="mb-6 text-h3 text-signal-600">{dict.problemsTitle}</h3>
       <ul class="flex flex-col gap-4" role="list">
         {
           dict.problems.map((p) => (
             <Card tag="li" tone="alt" class="flex gap-4 p-5 md:p-6">
-              <span class="grid size-11 shrink-0 place-items-center rounded-md bg-accent-soft text-accent">
+              <span class="grid size-11 shrink-0 place-items-center rounded-md bg-signal-100 text-signal-600">
                 <Icon name={p.icon as IconName} class="size-6" />
               </span>
               <div>
@@ -39,7 +39,7 @@ const dict = t(locale).how;
           dict.steps.map((s, i) => (
             <li class="relative">
               <span
-                class="absolute top-0 -left-8 grid size-8 -translate-x-1/2 place-items-center rounded-full bg-brand-500 text-sm font-bold text-ink-inverse"
+                class="absolute top-0 -left-8 grid size-8 -translate-x-1/2 place-items-center rounded-full border-2 border-signal-500 bg-signal-100 text-sm font-bold text-signal-600"
                 aria-hidden="true"
               >
                 {i + 1}
@@ -50,7 +50,7 @@ const dict = t(locale).how;
           ))
         }
       </ol>
-      <p class="mt-8 rounded-md border-l-4 border-brand-500 bg-brand-50 p-5 text-brand-950">
+      <p class="mt-8 rounded-md border-l-4 border-signal-500 bg-signal-100 p-5 text-ink">
         {dict.result}
       </p>
     </div>

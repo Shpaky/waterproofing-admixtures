@@ -8,7 +8,7 @@ interface Props {
   title: string;
   eyebrow?: string;
   lead?: string;
-  tone?: 'default' | 'alt' | 'dark';
+  tone?: 'default' | 'alt' | 'dark' | 'concrete';
   align?: 'left' | 'center';
   class?: string;
 }
@@ -25,6 +25,7 @@ const tones = {
   default: 'bg-surface',
   alt: 'bg-surface-alt',
   dark: 'bg-surface-dark text-ink-inverse',
+  concrete: 'bg-surface-concrete texture-concrete',
 };
 const headingId = `${id}-title`;
 ---

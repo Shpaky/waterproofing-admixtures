@@ -78,7 +78,7 @@ const jsonLd = JSON.stringify({
             {product.specs.map((s) => (
               <>
                 <dt class="text-ink-muted">{s.label[locale]}</dt>
-                <dd class="font-semibold">
+                <dd class="font-semibold text-signal-600">
                   {s.value[locale]}
                   {s.verify && <span aria-hidden="true">*</span>}
                 </dd>
@@ -107,7 +107,7 @@ const jsonLd = JSON.stringify({
       ))
     }
   </ul>
-  {needsVerify && <p class="mt-4 text-sm text-ink-muted">* {p.verify}</p>}
+  {needsVerify && <p class="mt-4 text-sm text-signal-600">* {p.verify}</p>}
 
   <div
     class="mt-10 flex flex-col gap-4 rounded-lg bg-brand-900 p-6 text-ink-inverse md:flex-row md:items-center md:gap-8 md:p-8"
