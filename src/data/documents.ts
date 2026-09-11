@@ -53,7 +53,15 @@ export const documents: DocumentItem[] = [
       ru: 'Паспорт безопасности D5 Aqua Stop',
       hi: 'D5 Aqua Stop सुरक्षा डेटाशीट',
     },
-    kind: { en: 'SDS · PDF', ru: 'SDS · PDF', hi: 'SDS · PDF' },
+    kind: {
+      en: 'SDS (GOST R 56378-2015, RSDS 37415339) · PDF, valid to 10.01.2027',
+      ru: 'SDS (ГОСТ Р 56378-2015, РПБ 37415339) · PDF, действует до 10.01.2027',
+      hi: 'SDS (GOST R 56378-2015, RSDS 37415339) · PDF, 10.01.2027 तक वैध',
+    },
+    files: {
+      en: { href: 'docs/D5-AquaStop-SDS-en.pdf', size: '2.5 MB' },
+      ru: { href: 'docs/D5-AquaStop-SDS-ru.pdf', size: '2.8 MB' },
+    },
   },
   {
     id: 'conformity',
