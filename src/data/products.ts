@@ -4,8 +4,9 @@ import type { Locale } from '@/i18n';
  * Product catalogue. Every text field is localized; numeric specs are shared.
  * D5 data comes from the manufacturer's Technical Data Sheet dated 2026-01-16 and the
  * Safety Data Sheet dated 2026-04-28 (public/docs). D5 Aqua Stop data comes from the
- * manufacturer's DRAFT datasheet (2026-09-11) whose values still await plant test reports,
- * hence `verify: true` on every Aqua Stop spec.
+ * registered Safety Data Sheet (RSDS 37415339, valid to 2027-01-10: name, composition, packaging,
+ * shelf life, GOST R 56378-2015) and from the manufacturer's DRAFT technical datasheet
+ * (2026-09-11) for application data, which still awaits plant test reports, hence `verify: true`.
  */
 export type Localized = Record<Locale, string>;
 
@@ -137,9 +138,9 @@ export const products: Product[] = [
         '19A Pozharskogo str., Vladikavkaz, 362002, Republic of North Ossetia-Alania, Russia',
     },
     kind: {
-      en: 'Brush-applied cementitious waterproofing mortar',
-      ru: 'Обмазочная цементная гидроизоляция',
-      hi: 'ब्रश से लगाया जाने वाला सीमेंट वॉटरप्रूफिंग मोर्टार',
+      en: 'Universal waterproofing dry mix for repair and protection of concrete',
+      ru: 'Универсальная гидроизоляционная сухая смесь для ремонта и защиты бетона',
+      hi: 'कंक्रीट की मरम्मत और सुरक्षा के लिए यूनिवर्सल वॉटरप्रूफिंग ड्राई मिक्स',
     },
     tagline: {
       en: 'Waterproofs existing concrete and masonry from either side of the water. Coat 2–5 mm, brush or spray.',
@@ -147,9 +148,9 @@ export const products: Product[] = [
       hi: 'मौजूदा कंक्रीट और चिनाई को पानी की किसी भी ओर से वॉटरप्रूफ करता है। 2–5 मिमी परत, ब्रश या स्प्रे से।',
     },
     description: {
-      en: 'A one-component dry mix of special cements, graded quartz sand, water-repellent and polymer admixtures, based on the same active components as D5. Mixed with water on site and worked into a pre-wetted substrate in two or more coats; the coating penetrates the pores and holds positive and negative water pressure.',
-      ru: 'Однокомпонентная сухая смесь специальных цементов, фракционированного кварцевого песка, гидрофобизирующих и полимерных добавок на базе тех же активных компонентов, что и D5. Затворяется водой на объекте и втирается в увлажнённое основание в два и более слоя; покрытие проникает в поры и держит прямое и обратное давление воды.',
-      hi: 'विशेष सीमेंट, ग्रेडेड क्वार्ट्ज़ रेत, जल-विकर्षक और पॉलीमर एडमिक्सचर का एक-घटक सूखा मिश्रण, D5 जैसे ही सक्रिय घटकों पर आधारित। साइट पर पानी में मिलाकर पहले से गीली सतह पर दो या अधिक कोट में रगड़ा जाता है; कोटिंग छिद्रों में प्रवेश करती है और सकारात्मक व नकारात्मक जल दबाव झेलती है।',
+      en: 'A one-component dry mix of high-strength cement, fine quartz sand, the D5 admixture, polypropylene fibre and modifying admixtures that raise adhesion and compensate shrinkage. Made to GOST R 56378-2015 for repair and protection of concrete, reinforced concrete and masonry. Mixed with water on site and worked into a pre-wetted substrate in two or more coats; the coating holds positive and negative water pressure.',
+      ru: 'Однокомпонентная сухая смесь высокопрочного цемента, мелкого кварцевого песка, добавки D5, полипропиленовой фибры и модифицирующих добавок, повышающих адгезию и компенсирующих усадку. Выпускается по ГОСТ Р 56378-2015 для ремонта и защиты бетонных, железобетонных и каменных конструкций. Затворяется водой на объекте и втирается в увлажнённое основание в два и более слоя; покрытие держит прямое и обратное давление воды.',
+      hi: 'उच्च-शक्ति सीमेंट, बारीक क्वार्ट्ज़ रेत, D5 एडमिक्सचर, पॉलीप्रोपिलीन फ़ाइबर और आसंजन बढ़ाने व सिकुड़न की भरपाई करने वाले संशोधक एडमिक्सचर का एक-घटक सूखा मिश्रण। कंक्रीट, RCC और चिनाई की मरम्मत और सुरक्षा के लिए GOST R 56378-2015 के अनुसार निर्मित। साइट पर पानी में मिलाकर पहले से गीली सतह पर दो या अधिक कोट में रगड़ा जाता है; कोटिंग सकारात्मक और नकारात्मक जल दबाव झेलती है।',
     },
     bullets: [
       {
@@ -212,13 +213,23 @@ export const products: Product[] = [
       },
       {
         label: { en: 'Packaging', ru: 'Фасовка', hi: 'पैकेजिंग' },
-        value: { en: '20 kg bags', ru: 'Мешки 20 кг', hi: '20 किग्रा बैग' },
-        verify: true,
+        value: {
+          en: '25–30 kg paper bags, 1000 kg big bags',
+          ru: 'Бумажные мешки 25–30 кг, биг-бэги 1000 кг',
+          hi: '25–30 किग्रा पेपर बैग, 1000 किग्रा बिग बैग',
+        },
       },
       {
         label: { en: 'Shelf life', ru: 'Срок хранения', hi: 'शेल्फ लाइफ' },
-        value: { en: '12 months', ru: '12 месяцев', hi: '12 महीने' },
-        verify: true,
+        value: {
+          en: '6 months, dry, above +10 °C',
+          ru: '6 месяцев, в сухом месте при температуре от +10 °C',
+          hi: '6 महीने, सूखी जगह, +10 °C से ऊपर',
+        },
+      },
+      {
+        label: { en: 'Standard', ru: 'Стандарт', hi: 'मानक' },
+        value: { en: 'GOST R 56378-2015', ru: 'ГОСТ Р 56378-2015', hi: 'GOST R 56378-2015' },
       },
     ],
   },

@@ -246,7 +246,7 @@ export const en = {
   documents: {
     eyebrow: 'Documents',
     title: 'Datasheets, reports and certificates',
-    lead: 'Everything an engineer or a tender committee needs. D5 technical and safety datasheets are available in English and Russian; the rest we send on request within a working day.',
+    lead: 'Everything an engineer or a tender committee needs. D5 technical and safety datasheets and the D5 Aqua Stop safety data sheet are available in English and Russian; the rest we send on request within a working day.',
     download: 'Download',
     request: 'Request',
     pending: 'On request',
