@@ -8,3 +8,6 @@ shots/
 *.log
 .DS_Store
 .env
+# incoming source documents dropped into the project root
+/*.docx
+/*.pdf

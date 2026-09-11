@@ -25,7 +25,7 @@ export const en = {
   hero: {
     eyebrow: 'Made in Russia · Supplied in India',
     title: 'Concrete that stays dry for the life of the structure',
-    lead: 'D5 is a complex multifunctional admixture: one powder gives concrete water resistance W20 and above, about 30% more strength, sulphate and frost resistance. D5 Aqua Stop seals active leaks in minutes. One supplier, technical support in India.',
+    lead: 'D5 is a complex multifunctional admixture: one powder gives concrete water resistance W20 and above, about 30% more strength, sulphate and frost resistance. D5 Aqua Stop, a brush-applied mortar, waterproofs existing structures from either side. One supplier, technical support in India.',
     note: 'Technical and safety datasheets available below, samples on request',
     figure:
       'Cross-section of concrete: D5 densifies the concrete body and seals pores and micro-cracks, water stays outside',
@@ -100,14 +100,14 @@ export const en = {
   products: {
     eyebrow: 'Products',
     title: 'What we supply',
-    lead: 'Two products that work as one system: D5 protects the concrete body, D5 Aqua Stop handles leaks at joints and defects.',
+    lead: 'Two products that work as one system: D5 goes into new concrete, D5 Aqua Stop is brushed onto existing concrete and masonry.',
     specsTitle: 'Key data',
     verify: 'Preliminary values, confirmed in the technical datasheet',
     tds: 'Datasheet (PDF)',
     askTds: 'Request datasheet',
     systemTitle: 'Used together',
     systemText:
-      'Dose D5 into new concrete for permanent waterproofing. Seal cold joints, tie holes and active leaks with D5 Aqua Stop, on existing structures or during construction.',
+      'Dose D5 into new concrete for permanent waterproofing. Coat existing basements, tanks and wet rooms with D5 Aqua Stop in 2–5 mm; it holds water pressure from both sides and is based on the same active components.',
   },
   benefits: {
     eyebrow: 'Benefits',
@@ -198,8 +198,8 @@ export const en = {
       },
       {
         icon: 'globe',
-        title: 'Repair with D5 Aqua Stop',
-        text: 'Active leaks in joints, cracks, tie holes and pipe penetrations.',
+        title: 'Existing structures with D5 Aqua Stop',
+        text: 'Basements from the inside, tanks, terraces and wet rooms, restoration of old waterproofing.',
       },
     ],
   },
@@ -225,7 +225,7 @@ export const en = {
         text: 'A dry basement, a leak-free water tank or pool from the first pour, with no membrane to redo in five years.',
         points: [
           'Simple dosage per bag of cement',
-          'Aqua Stop for leaks in existing joints and cracks',
+          'Aqua Stop for an existing basement or tank',
           'Advice in your language',
         ],
         cta: 'Ask a question',
@@ -269,7 +269,11 @@ export const en = {
       },
       {
         q: 'Does it work for existing concrete?',
-        a: 'D5 is dosed into fresh concrete or mortar. For structures already built, use D5 Aqua Stop on active leaks and ask us about the repair mortar option for larger areas.',
+        a: 'D5 is dosed into fresh concrete or mortar. For structures already built, use D5 Aqua Stop: a brush-applied mortar in two or more coats, 2–5 mm in total, rated W12 for positive and W8 for negative water pressure. Active leaks are stopped first with a rapid-setting plug mortar, then the surface is coated.',
+      },
+      {
+        q: 'How is D5 Aqua Stop applied?',
+        a: 'Onto a sound, roughened and pre-wetted substrate with no standing water. Mix the powder into clean water with a low-speed mixer for 2–3 minutes, let it stand 5 minutes and re-mix. Work the first coat in with a stiff brush, trowel or spray; apply the next coat after 4–5 hours crosswise, to a total of 2–5 mm (3 mm minimum for negative pressure). Keep the coating damp and shaded for 3 days; fill tanks no earlier than 7 days after the last coat.',
       },
       {
         q: 'What about cold joints?',
