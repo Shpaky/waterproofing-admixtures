@@ -65,6 +65,19 @@
   --color-brand-900: #203b80;
   --color-brand-950: oklch(22% 0.08 262);
   --color-accent: #fa0830;
+
+  /* Signal accent: the technical layer (numbers, markers, callouts). Never a second brand.
+     signal-500 carries no text (white on it is 3.6:1); signal-600 is the text colour on light
+     surfaces, signal-400 the text/icon colour on dark bands. */
+  --color-signal-100: #f6e4da;
+  --color-signal-400: #e08a5c;
+  --color-signal-500: #d2691e;
+  --color-signal-600: #a64a12;
+  --color-signal-900: #3a2417;
+
+  /* Concrete surfaces: warm grey bands that carry the noise texture. */
+  --color-surface-concrete: #e9e7e3;
+  --color-surface-concrete-dark: #171a1d;
   --color-accent-soft: oklch(95% 0.03 20);
   --color-success: oklch(60% 0.15 150);
   --color-success-soft: oklch(95% 0.04 150);
@@ -154,6 +167,18 @@
 @utility section-lazy {
   content-visibility: auto;
   contain-intrinsic-size: auto 60rem;
+}
+
+/* Concrete texture: inline SVG noise (feTurbulence) as background only, ~0.6 KB each.
+   Alpha is taken from the red noise channel scaled in feColorMatrix: 0.08 -> ~4 % average
+   dark grain on light concrete, 0.10 -> ~5 % light grain on dark bands. No layout impact. */
+@utility texture-concrete {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+@utility texture-concrete-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.10 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
 }
 
 @utility eyebrow {

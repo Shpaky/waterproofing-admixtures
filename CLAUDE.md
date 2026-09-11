@@ -28,6 +28,9 @@ tailwind, eslint/prettier с astro-плагинами, playwright + axe, lhci).
 - Только токены из `@theme` в `src/styles/global.css`. Произвольные значения
   (`text-[13px]`, `bg-[#a3a3a3]`, hex в разметке/SVG) запрещены — `npm run lint:tokens`.
   В инлайн-SVG использовать `currentColor` и классы.
+- Два акцента: синий `brand-*` — бренд (логотип, основная CTA, ссылки, активная навигация);
+  тёплый `signal-*` — технический слой (числа в техблоках, маркеры, выноски), не более 10 %
+  окрашенной площади, никогда не для кнопок рядом с основной CTA. Правила: `docs/design/color-and-texture.md`.
 - Ссылки и ассеты учитывают `base` (`import.meta.env.BASE_URL`). Сайт живёт
   на `https://shpaky.github.io/waterproofing-admixtures/`
   (`site: 'https://shpaky.github.io'`, `base: '/waterproofing-admixtures'`).
